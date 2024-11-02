@@ -5,3 +5,8 @@ homebrew/CurrentInstalledPackagesBrewfile
 # macOS
 .DS_Store
 
+# Neovim
+# - spelling dictionaries (except for extra added words)
+neovim/spell/*
+!neovim/spell/*.utf-8.add
+
