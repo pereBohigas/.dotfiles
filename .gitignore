@@ -1,3 +1,7 @@
+# Homebrew
+homebrew/Brewfile.lock.json
+homebrew/CurrentInstalledPackagesBrewfile
+
 # macOS
 .DS_Store
 
