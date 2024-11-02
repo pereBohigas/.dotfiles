@@ -1,0 +1,4 @@
+[submodule "european_keyboard_layout"]
+	path = european_keyboard_layout
+	url = git@github.com:pereBohigas/EurKEY.git
+	branch = feature/add_keyboard_pictures
