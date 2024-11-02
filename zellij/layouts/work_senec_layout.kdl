@@ -1,0 +1,28 @@
+layout {
+	pane split_direction="vertical" {
+		pane {
+			size "45%"
+			borderless true
+			command "lazygit"
+			cwd "/Users/pere.bohigas/Projects/ams_projects/jamestown-kundenportal-ios"
+		}
+
+		pane split_direction="horizontal" {
+			pane {
+				command "nvim"
+				cwd "/Users/pere.bohigas/Projects/ams_projects/jamestown-kundenportal-ios"
+			}
+
+			pane {
+				cwd "/Users/pere.bohigas/Projects/ams_projects/jamestown-kundenportal-ios"
+			}
+		}
+	}
+
+
+	// "$HOME/Projects/ams_projects/jamestown-kundenportal-ios"
+	// pane size=1 borderless=true {
+	// 	plugin location="zellij:compact-bar"
+	// }
+}
+
