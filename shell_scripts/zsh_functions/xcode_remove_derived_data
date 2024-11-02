@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+rm -rf "~/Library/Developer/Xcode/DerivedData"
+echo "Xcode derived data removed"
+

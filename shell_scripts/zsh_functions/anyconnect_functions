@@ -1,0 +1,69 @@
+#!/bin/zsh
+
+function connect_1und1() {
+	if isVPNConnected; then
+		echo "1&1 VPN already connected"
+
+		if ! isAnyConnectOpen; then
+			openAnyConnect
+		fi
+	else
+		if isAnyConnectOpen; then
+			closeAnyConnect
+		fi
+
+		echo "Connecting to 1&1 VPN.."
+		connectVPN
+		openAnyConnect
+	fi
+}
+
+function status_1und1() {
+	if isVPNConnected; then
+		echo "1&1 VPN connected"
+	else
+		echo "1&1 VPN disconnected"
+	fi
+}
+
+function disconnect_1und1() {
+	if isVPNConnected; then
+		echo "Disconnecting from 1&1 VPN.."
+		disconnectVPN
+		closeAnyConnect
+	else
+		echo "1&1 VPN already diconnected"
+
+		if isAnyConnectOpen; then
+			closeAnyConnect
+		fi
+	fi
+}
+
+function isVPNConnected() {
+	/opt/cisco/anyconnect/bin/vpn state | grep -c ">> state: Connected" | read output; (( output == 3 ))
+}
+
+function connectVPN() {
+	# based on https://apple.stackexchange.com/a/260928
+	/opt/cisco/anyconnect/bin/vpn connect "United Internet SPVPN EU" -s < $HOME/.cisco/credentials
+}
+
+function disconnectVPN() {
+	/opt/cisco/anyconnect/bin/vpn disconnect "United Internet SPVPN EU"
+}
+
+function isAnyConnectOpen() {
+	pgrep -q "Cisco AnyConnect Secure Mobility Client"
+}
+
+function openAnyConnect() {
+	open -gj -a "/Applications/Cisco/Cisco AnyConnect Secure Mobility Client.app"
+}
+
+function closeAnyConnect() {
+	# based on https://apple.stackexchange.com/a/354956
+	# osascript -e "quit app /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app"
+	pkill -x "Cisco AnyConnect Secure Mobility Client"
+}
+
