@@ -1,0 +1,19 @@
+# Global configuration
+Host *
+	AddKeysToAgent yes
+	UseKeychain yes # this option is only needed to save the keys passphrase in the Keychain (if they have one)
+
+# GitHub
+Host github
+	User git
+	PreferredAuthentications publickey
+	HostName github.com
+	IdentityFile ~/.ssh/github
+
+# GitLab
+Host gitlab
+	User git
+	PreferredAuthentications publickey
+	HostName gitlab.com
+	IdentityFile ~/.ssh/gitlab
+
