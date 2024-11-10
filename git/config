@@ -1,0 +1,96 @@
+[alias]
+	graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+
+[branch]
+	sort = -committerdate # sort by most recently used branches
+
+[browser "firefox"]
+	cmd = open -a Firefox.app
+
+[core]
+	editor = nvim
+	excludesFile = ~/.config/git/global_gitignore
+	pager = delta
+	ignorecase = false
+
+[credential]
+	helper = osxkeychain
+
+[delta]
+	dark = true      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	features = decorations
+	line-numbers = true
+	navigate = true    # use n and N to move between diff sections
+	#side-by-side = true
+	syntax-theme = gruvbox-dark
+	tabs = 4
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+	tool = nvimdiffs
+
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	prompt = true
+
+[fetch]
+	fsckobjects = true # avoid data corruption
+	prune = true
+	prunetags = true
+	writeCommitGraph = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+
+[init]
+	defaultBranch = main
+	templatedir = ~/.config/git/global_template
+
+[interactive]
+	diffFilter = delta --color-only
+
+[log]
+	date = iso
+
+[merge]
+	conflictstyle = zdiff3
+	tool = nvimdiff
+
+[mergetool]
+	path = nvim
+	prompt = false # automatically launch merge tool without displaying a prompt
+
+[pull]
+	rebase = true
+
+[push]
+	autosetupremote = true
+	default = current
+	followtags = true # push new tags along with commits being pushed
+
+[receive]
+	fsckobjects = true # avoid data corruption
+
+[rerere] # REuse REcorded REsolution - Remember the resolution of git merge conflicts and automatically fix them on new occurrences
+	enable = true
+
+[tag]
+	sort = taggerdate # sort by most recently used tags
+
+[transfer]
+	fsckobjects = true # avoid data corruption
+
+[user] # Default user
+	email = pere.bohigas@gmail.com
+	name = Pere Bohigas
+
+[web] # needed to be able to open Firefox on macOS
+	browser = firefox
+
+[include]
+	path = additional_config/config.secret
+
