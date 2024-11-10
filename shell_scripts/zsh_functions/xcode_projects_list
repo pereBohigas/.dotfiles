@@ -1,0 +1,37 @@
+#!/bin/zsh
+
+set -euo pipefail
+declare -a PROJECTS=()
+
+function XcodeProjectsInCurrentDirectory() {
+	TEMP_FILE=$(mktemp)
+	SEARCH_PATTERN="*${1}*.xcodeproj"
+	find . -iname "$SEARCH_PATTERN" -type d -print0 | sort -z > "$TEMP_FILE"
+	while IFS=  read -r -d $'\0'; do
+		PROJECTS+=("$REPLY")
+	done <"$TEMP_FILE"
+	rm -f "$TEMP_FILE"
+}
+
+function ListProjects() {
+	echo "Collecting .xcodeproj..."
+	XcodeProjectsInCurrentDirectory "$1"
+	if [ "${#PROJECTS[@]}" -eq 0 ]; then
+		echo "The project not found."
+		exit 0
+	elif [ "${#PROJECTS[@]}" -eq 1 ]; then
+		echo "Opening ${PROJECTS[0]}..."
+		xed "${PROJECTS[0]}"
+	else
+		echo "Please select a project:"
+		select d in "${PROJECTS[@]}"; do test -n "$d" && break; echo ">>> Invalid Selection"; done
+		echo "Opening ${d}..."
+		xed "$d"
+	fi
+}
+
+ListProjects "${1-}"
+
+unset XcodeProjectsInCurrentDirectory;
+unset ListProjects;
+

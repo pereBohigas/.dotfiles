@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+tr -d '\n' < ~/.ssh/$1.pub | pbcopy
+

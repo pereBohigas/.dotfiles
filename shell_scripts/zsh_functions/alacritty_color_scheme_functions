@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+# Script to change alacritty's color scheme
+# based on: https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
+
+function check_color_schemes_file() {
+	if [[ ! -f "$ALACRITTY_COLOR_SCHEMES_FILE_PATH" ]]; then
+		printf '%s\n' "$ALACRITTY_COLOR_SCHEMES_FILE_PATH does not exists!" >&2
+		return 1
+	fi
+}
+
+function get_color_scheme() {
+	check_color_schemes_file || return 1
+
+	# Get color scheme from Alacritty's configuration file
+	echo "$(sed -n "s#^colors: \*##p" $ALACRITTY_COLOR_SCHEMES_FILE_PATH)"
+}
+
+function set_color_scheme() {
+	check_color_schemes_file || return 1
+
+	# Set color scheme in Alacritty's configuration file
+	sed -i "" -e "s#^colors: \*.*#colors: *$1#g" $ALACRITTY_COLOR_SCHEMES_FILE_PATH
+
+	echo "Alacritty's color scheme changed to \033[1m$1\033[0m"
+}
+
+# Alias to change between styles for the default color scheme
+alias dark="set_color_scheme gruvbox_dark"
+
+alias light="set_color_scheme gruvbox_light"
+

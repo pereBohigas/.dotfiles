@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+# https://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-an-old-commit-in-git
+# https://stackoverflow.com/questions/1186535/how-do-i-modify-a-specific-commit
+
+timestamp=$1
+
+# --date=now
+
+git rebase --interactive bbc643cd~
+
+git commit --amend --date="Wed Feb 16 14:00 2011 +0100" --no-edit
+

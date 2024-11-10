@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+rm -r ~/Library/Application\ Support/Microsoft/Teams
+echo "MS Teams cache removed"
+

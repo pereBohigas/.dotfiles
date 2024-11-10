@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+# Based on:
+# https://morgan.cugerone.com/blog/how-to-use-git-worktree-and-in-a-clean-way/
+# https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/
+
+# Examples of call:
+# git-clone-bare-for-worktrees git@github.com:name/repo.git
+# => Clones to a /repo directory
+#
+# git-clone-bare-for-worktrees git@github.com:name/repo.git my-repo
+# => Clones to a /my-repo directory
+
+repositoryURL=$1
+repositoryBasename=${repositoryURL##*/}
+repositoryDirectoryName=${2:-${repositoryBasename%.*}}.worktrees
+
+mkdir $repositoryDirectoryName
+
+echo "Directory created"
+
+git clone --bare $repositoryURL $repositoryDirectoryName/.bare
+
+echo "gitdir: ./.bare" > $repositoryDirectoryName/.git
+
+git config --file $repositoryDirectoryName/.bare/config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+
+echo "Repository cloned"
+
+git --git-dir=$repositoryDirectoryName/.git fetch origin
+
+echo "Repository branches fetched"
+
