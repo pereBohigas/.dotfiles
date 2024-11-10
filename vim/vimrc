@@ -1,0 +1,196 @@
+" Automatically re-read file when modified outside and unmodified inside Vim
+set autoread
+
+" Show line number of the current line
+set number
+
+" Show relative numbers of the other lines
+set relativenumber
+
+" Tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+
+" Scroll
+set scrolloff=6
+
+" Update time
+set updatetime=50
+
+" Allow mouse action
+set mouse=a
+
+" Use system clipboard
+set clipboard=unnamed
+
+" Enable syntax highlighting
+syntax enable
+
+" Highlight results
+set nohlsearch
+
+" Incremental search
+set incsearch
+
+" Remap for centering search results
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Show partial commands
+set showcmd
+
+" Show row and column position
+set ruler
+
+" Use Unicode
+set encoding=utf-8
+
+" Highlight the line containing the cursor
+set cursorline
+
+" Show the matching brace when you insert one
+" set showmatch
+
+" Enable indentation of wrapped lines
+set breakindent
+
+" Avoid breaking lines in the middle of a word
+set linebreak
+
+" Append '↪' to indentation of wrapped lines
+let &showbreak='↪ '
+
+" Display tabs
+set list
+
+" When shifting lines, round the indentation to the nearest multiple of shift width
+set shiftround
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Set maximum line length
+"set textwidth=90
+
+" Highlight the column after the maximum line length
+"set colorcolumn=+1
+
+" Enable folding with the space bar
+" nnoremap <space> za
+
+" Set default split area
+set splitbelow
+set splitright
+
+" Simplify split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Remap leader key ('\') and local leader with dash ('-')
+" let mapleader = "-"
+" let maplocalleader = "-"
+
+" Make 'Y' to yank till the end of the line (behaving like the other capital
+" letters)
+nnoremap Y y$
+
+" Fix syntax highlighting
+" - Fastlane files
+autocmd BufNewFile,BufRead *.Fastfile set filetype=ruby
+" - LaTeX files
+autocmd BufNewFile,BufRead *.tex set filetype=tex
+autocmd BufNewFile,BufRead *.lco set filetype=tex
+
+""" STILL TESTING
+" Turned on autoindent
+" autoindent -> new lines inherit the indentation of previous lines
+set autoindent
+"set smartindent
+
+" Show always the status line
+set laststatus=2
+
+" Support true color terminal
+set termguicolors
+
+" Disable the current mode label (for Insert, Replace or Visual)
+set noshowmode
+
+" Remap for moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+
+" Remove trailing white spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" Set 2 spaces indentation for YAML files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Set 4 spaces indentation for Ruby files
+autocmd FileType ruby setlocal shiftwidth=4 noexpandtab
+
+" For regular expressions turn magic on
+"set magic
+
+if has('nvim')
+	finish
+endif
+
+" VIM specific configuration
+
+" Set '.viminfo' file path
+set viminfofile=~/.vim/viminfo
+
+" Change the cursor between Normal and Insert modes
+" Cursor settings:
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+" from: https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+
+" Drop vi support
+set nocompatible
+
+" Set color scheme
+colorscheme slate
+
+" Set tab character for Vim
+set listchars=tab:···
+
+" NETRW configuration (native file manager)
+" Remove the directory banner of the netrw (file browser)
+let g:netrw_banner = 0
+" Set default view type for the netrw (file browser)
+let g:netrw_liststyle = 3
+" Define how files are open in the netrw (in a vertical split)
+" options: 1-horizontal split, 2-vertical split, 3-new tab, 4-previous window
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+" Set the width of the netrw explorer
+let g:netrw_winsize = 24
+" Start NETRW and put the cursor back in the other window.
+autocmd VimEnter * :Vexplore | wincmd p
+" Exit Vim if NETRW is the only window left.
+autocmd BufEnter *
+\  if tabpagenr('$') == 1 && winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"
+\|   quit
+\| endif
+
