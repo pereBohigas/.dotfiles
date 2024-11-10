@@ -1,0 +1,231 @@
+### Zsh configuration file ###
+
+# Debug Zsh Boot
+if [[ -n $ZSHRC_DEBUG ]]; then
+	zmodload zsh/zprof
+fi
+
+## Prompt initialization (instant prompt)
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r ${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh ]]; then
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+## Zsh options
+
+# Set language environment (displayed language for some CLI, among others git)
+export LANG=en_US.UTF-8
+
+# Initialize Zsh completion system, speeding up zsh compinit by only checking cache once a day
+# from: https://gist.github.com/ctechols/ca1035271ad134841284#file-compinit-zsh
+autoload -Uz compinit
+[[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]] && compinit || compinit -C
+
+# To activate vi mode in Zsh (not needed when using plugin)
+# bindkey -v
+# export KEYTIMEOUT=1
+
+# Set Zsh main options (testing)
+# setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+# setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+# setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+
+## Custom options
+
+# Load aliases
+[[ -f $HOME/.config/zsh/zsh_aliases ]] && source "$HOME/.config/zsh/zsh_aliases" || echo "File with Zsh aliases not found in '$HOME/.config/zsh/zsh_aliases'!"
+
+# Add custom functions
+if [[ -d $HOME/.config/zsh/zsh_functions/ ]]; then
+	FPATH="$FPATH:$HOME/.config/zsh/zsh_functions"
+	# autoload -Uz alacritty_color_scheme_functions && alacritty_color_scheme_functions
+	autoload -Uz anyconnect_functions && anyconnect_functions
+	autoload -Uz git_change_author
+	autoload -Uz git_clone_worktrees
+	autoload -Uz git_multiple_pull
+	autoload -Uz latex_update
+	autoload -Uz ssh_add_identities
+	autoload -Uz ssh_copy_key
+	autoload -Uz ssh_generate_key
+	autoload -Uz teams_clean_cache
+	autoload -Uz xcode_remove_derived_data
+	autoload -Uz xcode_projects_list
+else
+	echo "File with custom functions not found in '$HOME/.config/zsh/zsh_functions/'!"
+fi
+
+# SSH agent configuration
+# Automate ssh-agent startup
+[[ -z $SSH_AUTH_SOCK ]] && eval "$(ssh-agent -s)"
+
+# Add ssh identities
+SSH_PRIVATE_KEYS=(`find $HOME/.ssh -type f -not -name "*.pub" -not -name "*.sh" -exec grep -slR "OPENSSH PRIVATE KEY" {} \; | sort`)
+
+if typeset -f ssh_add_identities &> /dev/null; then
+	ssh_add_identities $SSH_PRIVATE_KEYS
+fi
+
+## Plugins
+
+# Use anonymous function encapsulation only for scoping purposes
+# see: https://stackoverflow.com/a/13670749
+function() {
+	local readonly HOMEBREW_DIRECTORY=$(brew --prefix)
+
+	typeset -A plugins=(
+		[autosuggestions]="$HOMEBREW_DIRECTORY/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+		[syntax_highlighting]="$HOMEBREW_DIRECTORY/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+		[fzf_completion]="$HOMEBREW_DIRECTORY/opt/fzf/shell/completion.zsh"
+		[fzf_key_bindings]="$HOMEBREW_DIRECTORY/opt/fzf/shell/key-bindings.zsh"
+		[vi_mode]="$HOMEBREW_DIRECTORY/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+		[prompt_theme]="$HOMEBREW_DIRECTORY/share/powerlevel10k/powerlevel10k.zsh-theme"
+	)
+
+	for key value in "${(@kv)plugins}"; do
+		[[ -f $value ]] && source "$value" || echo "Plugin $key not loaded, file '$value' not found!"
+	done
+}
+
+# Plugin configuration
+# Set ctrl + l for accepting the proposed suggestion of autosuggestions
+bindkey "^l" autosuggest-accept
+# Set color for Zsh autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+## Initializations
+
+# NVM initialization (faster nvm lazy initialization)
+# from: https://stackoverflow.com/a/47017363
+lazy_nvm_load() {
+	unset -f nvm node npm
+
+	export NVM_DIR="${HOME}/.nvm"
+	[[ -s $NVM_DIR/nvm.sh ]] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+}
+
+nvm() {
+	lazy_nvm_load
+	nvm $@
+}
+
+node() {
+	lazy_nvm_load
+	node $@
+}
+
+npm() {
+	lazy_nvm_load
+	npm $@
+}
+
+# Pyenv initialization (installed with Homebrew)
+# web: https://github.com/pyenv/pyenv
+if (( $+commands[pyenv] )); then
+	function() {
+		local readonly PYENV_HOMEBREW_PATH=$(brew --prefix)/opt/pyenv
+
+		export PYENV_ROOT="$HOME/.pyenv"
+		[[ -d $PYENV_HOMEBREW_PATH/bin ]] && PATH="$PATH:$PYENV_HOMEBREW_PATH/bin"
+		[[ -d $PYENV_ROOT/shims ]] && PATH="$PATH:$PYENV_ROOT/shims"
+	}
+
+	function pyenv() {
+		unset -f pyenv
+
+		# Pyenv initialization avoiding rehash
+		# from: https://github.com/pyenv/pyenv/issues/2918#issuecomment-2161707549
+		eval "$(pyenv init - --no-rehash zsh)"
+
+		pyenv $@
+	}
+else
+	echo "pyenv binary not available"
+fi
+
+# Rbenv initialization
+# from: https://github.com/rbenv/rbenv
+if (( $+commands[rbenv] )); then
+	eval "$(rbenv init - zsh)"
+else
+	echo "rbenv binary not available"
+fi
+
+# Java (OpenJDK) initialization
+# After installing with Homebrew symlinks for the system Java wrappers should be created to find the JDK (see Homebrew info `brew info openjdk`)
+# sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+if (( $+commands[java] )); then
+	function() {
+		local readonly JAVA_HOMEBREW_PATH="$(brew --prefix)/opt/openjdk"
+
+		export JAVA_HOME="`/usr/libexec/java_home`" # Non-standard syntax, accepted by bash
+		[[ -d $JAVA_HOMEBREW_PATH ]] && PATH="$PATH:$JAVA_HOMEBREW_PATH/bin"
+	}
+else
+	echo "java binary not available"
+fi
+
+# Swift Version Manager
+if (( $+commands[swiftenv] )); then
+	eval "$(swiftenv init -)"
+fi
+
+# Haskell initialization
+[[ -d $HOME/.local/bin ]] && PATH="$PATH:$HOME/.local/bin"
+
+# Mint initialization
+[[ -d $HOME/.mint/bin ]] && PATH="$PATH:$HOME/.mint/bin"
+
+# FZF initialization
+(( $+commands[fzf] )) && eval "$(fzf --zsh)" || echo "No fzf installed"
+
+# Rust binaries
+[[ -d $HOME/.cargo/bin ]] && PATH="$PATH:$HOME/.cargo/bin"
+
+# Add zoxide (after `compinit` is called to make completions to work and change the prefix of the `z` and `zi` command to `cd
+(( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)" || echo "No zoxide installed"
+
+# Add SourceKit (Swift LSP) to path
+[[ -d $HOME/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain ]] && PATH="$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain"
+
+## Command history setup
+
+# HISTFILE=$HOME/.zhistory
+# SAVEHIST=1000
+# HISTSIZE=999
+# setopt share_history
+# setopt hist_expire_dups_first
+# setopt hist_ignore_dups
+# setopt hist_verify
+#
+# # completion using arrow keys (based on history)
+# bindkey '^K' history-search-backward
+# bindkey '^J' history-search-forward
+
+# Prompt initialization
+
+# eval "$(starship init zsh)"
+# export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/p10k.zsh.
+[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
+
+# Setup Stack binaries
+export PATH="$PATH:$HOME/.local/bin"
+
+# Load additional Zsh configuration
+if [[ -d $HOME/.config/zsh/zsh_additional_configuration ]]; then
+	for CONFIGURATION_FILE in $HOME/.config/zsh/zsh_additional_configuration/*; do
+		source "$CONFIGURATION_FILE"
+	done
+else
+	echo "Directory with additional Zsh configuration not found in '$HOME/.config/zsh/zsh_additional_configuration'"
+fi
+
+# Debug Zsh Boot
+if [[ -n $ZSHRC_DEBUG ]]; then
+	zprof
+fi
+

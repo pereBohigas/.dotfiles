@@ -1,0 +1,42 @@
+#!/bin/zsh
+
+## Navigation
+
+# cd
+alias .="cd ."
+alias ..="cd .."
+
+# ls
+if (( $+commands[eza] )); then
+	# Show files and directories
+	alias l="eza -l --git --group-directories-first --icons --no-user"
+	# Show files and directories sorted by recently modified
+	alias ld="eza -l --git --group-directories-first --icons --no-user --sort=modified -r"
+	# Show files and directories including hidden ones
+	alias ll="eza -al --git --group-directories-first --icons --no-user"
+	# Show files and directories including hidden ones sorted by recently modified
+	alias lld="eza -al --git --group-directories-first --icons --no-user --sort=modified -r"
+	# Show files and directories including hidden ones in a three level depth
+	alias lll="eza -alT --git --group-directories-first --icons --level=3 --no-user"
+	# Show files and directories including hidden ones in a three level depth sorted by recently modified
+	alias llld="eza -alT --git --group-directories-first --icons --level=3 --no-user --sort=modified -r"
+else
+	# Show files and directories
+	alias l="ls -FGhl"
+	# Show files and directories sorted by recently modified
+	alias ld="ls -FGhlt"
+	# Show files and directories including hidden ones
+	alias ll="ls -aFGhl"
+	# Show files and directories including hidden ones sorted by recently modified
+	alias lld="ls -aFGhlt"
+fi
+
+# macOS directories
+alias desktop="cd $HOME/Desktop/"
+alias downloads="cd $HOME/Downloads/"
+
+## Applications
+
+# Lazygit
+(( $+commands[lazygit] )) && alias lg="lazygit"
+
