@@ -1,0 +1,43 @@
+customCommands:
+  - key: 'x'
+    command: "xed --background ."
+    context: 'global'
+    description: 'Opens Xcode on current project'
+    loadingText: 'Opening Xcode on current project'
+  - key: 'X'
+    context: 'global'
+    command: >-
+      xed . && osascript -e 'tell app "XCode" to close window 0'
+    description: 'Closes Xcode on current project'
+    loadingText: 'Closing Xcode on current project'
+    #command: "kill $(ps aux | grep 'Xcode' | awk '{print $2}')"
+git:
+  autoFetch: true
+  autoRefresh: true
+  disableForcePushing: false
+  fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
+  mainBranches: [master, main]
+  paging:
+    colorArg: always
+    pager: delta --true-color=always --paging=never #--24-bit-color=never
+    useConfig: false
+  # The main branches. We colour commits green if they belong to one of these branches,
+  # so that you can easily see which commits are unique to your branch (coloured in yellow)
+  parseEmoji: true
+gui:
+  authorColors:
+    # use green for me
+    'Pere Bohigas': 'green'
+    # use white for other authors
+    '*': 'white'
+  language: 'en' # one of 'auto' | 'en' | 'zh-CN' | 'zh-TW' | 'pl' | 'nl' | 'ja' | 'ko' | 'ru'
+  nerdFontsVersion: "3"
+  theme:
+    selectedLineBgColor:
+      - reverse
+      - bold
+  timeFormat: '02 Jan 2006' # https://pkg.go.dev/time#Time.Format
+notARepository: 'quit'
+os:
+  editPreset: 'nvim'
+
