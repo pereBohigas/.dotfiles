@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+# Check if the script is being run with root privileges
+if [ "$(id -u)" -ne 0 ]; then
+	echo "This script must be run with elevated privileges (e.g., sudo)."
+	exit 1
+fi
+
+# Check if Touch ID is already enabled
+if grep -q "auth       sufficient     pam_tid.so" /etc/pam.d/sudo; then
+	echo "Touch ID is already enabled for sudo."
+	exit 0
+fi
+
+# Add Touch ID to the sudo file with matching spacing
+sudo awk 'NR==1{print; print "auth       sufficient     pam_tid.so"; next} 1' /etc/pam.d/sudo >/etc/pam.d/sudo_temp
+sudo mv /etc/pam.d/sudo_temp /etc/pam.d/sudo
+
+# Verify that the line was added successfully
+if grep -q "auth       sufficient     pam_tid.so" /etc/pam.d/sudo; then
+	echo "Touch ID successfully enabled for sudo."
+else
+	echo "Failed to enable Touch ID for sudo."
+fi
+

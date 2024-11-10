@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+(( $+commands[tlmgr] )) || echo "TeX Live Manager not installed"; exit 1
+
+# Update TeX Live Manager
+sudo tlmgr update --self
+
+# Update all packages reinstalling corrupted ones
+sudo tlmgr update --all --reinstall-forcibly-removed
+
+sudo tlmgr backup --clean --all
+

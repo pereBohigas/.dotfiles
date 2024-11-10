@@ -1,0 +1,58 @@
+#!/bin/zsh
+
+# Define colors
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+
+# Function to print messages in color and set terminal output to no color after
+# $1: color, from the predefined ones or an ANSI escape code
+# $2: text to output
+# function print_color() {
+# 	echo "${!1}${2}\033[0m"
+# }
+
+# Function to generate a passphrase with 128 bits of entropy
+function generate_passphrase() {
+	dd if=/dev/urandom bs=16 count=1 2>/dev/null | base64 | sed 's/=//g'
+}
+
+# Function to generate a SSH key for a service
+# $1: SSH key name
+# $2: SSH key comment
+PASSPHRASE="$(generate_passphrase)"
+SSH_KEY_PATH="$HOME/.ssh/$1"
+
+# Generate SSH key if it does not exist
+if [ -f "$SSH_KEY_PATH" ]; then
+	# print_color RED "The ssh key '$1' already exists"
+	echo "The ssh key '$1' already exists"
+	exit 1
+fi
+
+# Generate SSH key if it does not exist
+# print_color GREEN "Generating ssh key '$1'"
+echo "Generating ssh key '$1'"
+ssh-keygen -t ed25519 -f "$SSH_KEY_PATH" -C "$2" -N "$PASSPHRASE"
+
+# print_color GREEN "Adding ssh key '$1'"
+echo "Adding ssh key '$1'"
+touch "$HOME/.ssh/auto_ssh_key_add"
+
+chmod 700 "$HOME/.ssh/auto_ssh_key_add"
+
+cat >> "$HOME/.ssh/auto_ssh_key_add" <<-EOF
+#!/bin/sh
+echo $PASSPHRASE
+EOF
+
+chmod 500 "$HOME/.ssh/auto_ssh_key_add"
+
+# Set variables for auto adding of ssh key
+export DISPLAY=1
+export SSH_ASKPASS="$HOME/.ssh/auto_ssh_key_add"
+
+# Add ssh keys to the ssh-agent and therefore store passphrase in the keychain
+ssh-add --apple-use-keychain "$SSH_KEY_PATH" < /dev/null
+
+rm -f "$HOME/.ssh/auto_ssh_key_add"
+
