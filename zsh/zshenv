@@ -5,6 +5,9 @@
 # Set Zsh config directory
 export ZDOTDIR="$HOME/.config/zsh"
 
+# Set the default password storage directory
+export PASSWORD_STORE_DIR="$HOME/.config/password_store"
+
 # editor
 export EDITOR="nvim"
 export VISUAL="nvim"
