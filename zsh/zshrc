@@ -179,7 +179,7 @@ fi
 [[ -d $HOME/.mint/bin ]] && PATH="$PATH:$HOME/.mint/bin"
 
 # FZF initialization
-(( $+commands[fzf] )) && eval "$(fzf --zsh)" || echo "No fzf installed"
+(( $+commands[fzf] )) && source <(fzf --zsh) || echo "No fzf installed"
 
 # Rust binaries
 [[ -d $HOME/.cargo/bin ]] && PATH="$PATH:$HOME/.cargo/bin"
