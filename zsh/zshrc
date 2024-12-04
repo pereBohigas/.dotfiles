@@ -73,15 +73,13 @@ fi
 # Use anonymous function encapsulation only for scoping purposes
 # see: https://stackoverflow.com/a/13670749
 function() {
-	local readonly HOMEBREW_DIRECTORY=$(brew --prefix)
-
 	typeset -A plugins=(
-		[autosuggestions]="$HOMEBREW_DIRECTORY/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-		[syntax_highlighting]="$HOMEBREW_DIRECTORY/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-		[fzf_completion]="$HOMEBREW_DIRECTORY/opt/fzf/shell/completion.zsh"
-		[fzf_key_bindings]="$HOMEBREW_DIRECTORY/opt/fzf/shell/key-bindings.zsh"
-		[vi_mode]="$HOMEBREW_DIRECTORY/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-		[prompt_theme]="$HOMEBREW_DIRECTORY/share/powerlevel10k/powerlevel10k.zsh-theme"
+		[autosuggestions]="$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+		[syntax_highlighting]="$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+		[fzf_completion]="$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+		[fzf_key_bindings]="$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+		[vi_mode]="$HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+		[prompt_theme]="$HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
 	)
 
 	for key value in "${(@kv)plugins}"; do
@@ -125,7 +123,7 @@ npm() {
 # web: https://github.com/pyenv/pyenv
 if (( $+commands[pyenv] )); then
 	function() {
-		local readonly PYENV_HOMEBREW_PATH=$(brew --prefix)/opt/pyenv
+		local readonly PYENV_HOMEBREW_PATH=$HOMEBREW_PREFIX/opt/pyenv
 
 		export PYENV_ROOT="$HOME/.pyenv"
 		[[ -d $PYENV_HOMEBREW_PATH/bin ]] && PATH="$PATH:$PYENV_HOMEBREW_PATH/bin"
@@ -158,7 +156,7 @@ fi
 # sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 if (( $+commands[java] )); then
 	function() {
-		local readonly JAVA_HOMEBREW_PATH="$(brew --prefix)/opt/openjdk"
+		local readonly JAVA_HOMEBREW_PATH="$HOMEBREW_PREFIX/opt/openjdk"
 
 		export JAVA_HOME="`/usr/libexec/java_home`" # Non-standard syntax, accepted by bash
 		[[ -d $JAVA_HOMEBREW_PATH ]] && PATH="$PATH:$JAVA_HOMEBREW_PATH/bin"
