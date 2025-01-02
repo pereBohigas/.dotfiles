@@ -168,6 +168,12 @@ require("lazy").setup({
 	{
 		"lewis6991/gitsigns.nvim"
 	},
+	--- HASKELL ---
+	{
+		'mrcjkb/haskell-tools.nvim',
+		version = '^4', -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
 	--- INTEGRATION ---
 	-- Obsidian -> https://github.com/epwalsh/obsidian.nvim
 	{
