@@ -22,12 +22,18 @@ require("lazy").setup({
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' }
 	},
-	--- Gruvbox -> https://github.com/ellisonleao/gruvbox.nvim
-	{
-		"ellisonleao/gruvbox.nvim",
-		priority = 1000,
-		config = true
-	},
+	--- Gruvbox Material -> https://github.com/sainnhe/gruvbox-material
+    {
+      'sainnhe/gruvbox-material',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.gruvbox_material_enable_italic = true
+        vim.cmd.colorscheme('gruvbox-material')
+      end
+    },
 	-- Treesitter -> https://github.com/nvim-treesitter/nvim-treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
