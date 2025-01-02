@@ -178,6 +178,9 @@ fi
 # Add SourceKit (Swift LSP) to path
 [[ -d $HOME/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain ]] && PATH="$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain"
 
+# Mise
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
 ## Command history setup
 
 # HISTFILE=$HOME/.zhistory
