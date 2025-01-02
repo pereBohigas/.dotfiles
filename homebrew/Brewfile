@@ -7,6 +7,8 @@ tap "julien-cpsn/atac"
 # tap "koekeishiya/formulae"
 # tap "kylef/formulae"
 tap "xcodesorg/made"
+# Tap for browserpass
+tap "amar1729/formulae"
 
 ### Mac App Store CLI ###
 brew "mas" # Mac App Store command-line interface
@@ -23,7 +25,6 @@ brew "rbenv" # Ruby version manager
 
 ### Zsh plugins ###
 brew "fzf" # Command-line fuzzy finder written in Go
-brew "powerlevel10k" # A Zsh Theme
 brew "zsh-autosuggestions" # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-syntax-highlighting" # Fish shell like syntax highlighting for zsh
 brew "zsh-vi-mode" # Better and friendly vi(vim) mode plugin for ZSH
@@ -78,6 +79,7 @@ cask "keka" # File archiver
 ### Internet browser ###
 cask "brave-browser" # Web browser focusing on privacy
 cask "firefox" # Web browser
+cask "browserpass" # Host application for browser extension providing access to your password store
 
 ### Office tools ###
 cask "deepl" # Trains AIs to understand and translate texts
@@ -91,6 +93,9 @@ mas "Pages", id: 409201541
 cask "skim" # PDF reader and note-taking application
 # cask "zotero" # Collect, organize, cite, and share research sources -> NOT M1 COMPATIBLE
 
+### Keyboard Tools ###
+cask "keymapp" # ZSA keyboard firmware flasher
+
 ### Command line tools ###
 brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
 brew "bottom" # Yet another cross-platform graphical process/system monitor
@@ -100,8 +105,11 @@ brew "drill" # HTTP load testing application written in Rust
 brew "dust" # More intuitive version of du in rust
 brew "eza" # Modern, maintained replacement for ls
 brew "fd" # Simple, fast and user-friendly alternative to find
+brew "fx" # Terminal JSON viewer
 brew "gitleaks" # Audit git repos for secrets
 brew "glow" # Render markdown on the CLI
+cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
+brew "gtypist" # GNU typing tutor
 brew "hexyl" # Command-line hex viewer
 brew "htop" # Improved top (interactive process viewer)
 brew "hub" # Add GitHub support to git on the command-line
@@ -114,6 +122,7 @@ brew "parallel" # Shell command parallelization utility
 brew "pkl" # CLI for the Pkl programming language
 brew "ripgrep" # Search tool like grep and The Silver Searcher
 brew "sd" # Intuitive find & replace CLI
+brew "tabiew" # TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
 brew "tldr" # Simplified and community-driven man pages
 brew "tree" # Display directories as trees (with optional color/HTML output)
 brew "viu" # Simple terminal image viewer written in Rust
@@ -160,6 +169,7 @@ cask "maccy" # Clipboard manager
 cask "monitorcontrol" # Tool to control external monitor brightness & volume
 # cask "qlmarkdown" # QuickLook generator for Markdown files
 # cask "rectangle" # Move and resize windows using keyboard shortcuts or snap areas
+cask "shortcat" # App that enables mouse-free UI interaction
 # brew "skhd" # Simple hotkey-daemon for macOS
 # brew "yabai" # A tiling window manager for macOS based on binary space partitioning
 
