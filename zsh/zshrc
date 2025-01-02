@@ -5,15 +5,6 @@ if [[ -n $ZSHRC_DEBUG ]]; then
 	zmodload zsh/zprof
 fi
 
-## Prompt initialization (instant prompt)
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r ${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh ]]; then
-	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ## Zsh options
 
 # Set language environment (displayed language for some CLI, among others git)
@@ -79,7 +70,6 @@ function() {
 		[fzf_completion]="$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
 		[fzf_key_bindings]="$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 		[vi_mode]="$HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-		[prompt_theme]="$HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
 	)
 
 	for key value in "${(@kv)plugins}"; do
@@ -203,12 +193,9 @@ fi
 # bindkey '^J' history-search-forward
 
 # Prompt initialization
-
-# eval "$(starship init zsh)"
-# export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/p10k.zsh.
-[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
+if (( $+commands[oh-my-posh] )) && [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+	eval "$(oh-my-posh init zsh --config $HOME/.config/oh_my_posh/configuration.toml)"
+fi
 
 # Setup Stack binaries
 export PATH="$PATH:$HOME/.local/bin"
