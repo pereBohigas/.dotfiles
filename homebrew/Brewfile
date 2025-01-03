@@ -73,6 +73,10 @@ cask "keka" # File archiver
 ### Internet browser ###
 cask "brave-browser" # Web browser focusing on privacy
 cask "firefox" # Web browser
+# Browserpass setup for Firefox:
+# PREFIX='/opt/homebrew/opt/browserpass' make hosts-firefox-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
+# Browserpass setup for Brave:
+# PREFIX='/opt/homebrew/opt/browserpass' make hosts-brave-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
 brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
 
 ### Office tools ###
