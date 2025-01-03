@@ -1,14 +1,7 @@
 # run 'brew bundle' to install all listed packages
 
 ### Homebrew taps ###
-tap "cirruslabs/cli"
 tap "homebrew/bundle"
-tap "julien-cpsn/atac"
-# tap "koekeishiya/formulae"
-# tap "kylef/formulae"
-tap "xcodesorg/made"
-# Tap for browserpass
-tap "amar1729/formulae"
 
 ### Mac App Store CLI ###
 brew "mas" # Mac App Store command-line interface
@@ -28,6 +21,7 @@ brew "fzf" # Command-line fuzzy finder written in Go
 brew "zsh-autosuggestions" # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-syntax-highlighting" # Fish shell like syntax highlighting for zsh
 brew "zsh-vi-mode" # Better and friendly vi(vim) mode plugin for ZSH
+brew "jandedobbeleer/oh-my-posh/oh-my-posh" # Prompt theme engine for any shell
 
 ### Compilers ###
 brew "rust" # Safe, concurrent, practical language
@@ -48,7 +42,7 @@ brew "lazygit" # Simple terminal UI for git commands
 # brew "openconnect" # Open client for Cisco AnyConnect VPN
 
 ### Networking tools ###
-brew "atac" # A simple API client (postman like) in your terminal
+brew "julien-cpsn/atac/atac" # A simple API client (postman like) in your terminal
 # cask "proxyman" # Modern and intuitive HTTP Debugging Proxy app
 
 ### Development tools ###
@@ -79,7 +73,7 @@ cask "keka" # File archiver
 ### Internet browser ###
 cask "brave-browser" # Web browser focusing on privacy
 cask "firefox" # Web browser
-cask "browserpass" # Host application for browser extension providing access to your password store
+brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
 
 ### Office tools ###
 cask "deepl" # Trains AIs to understand and translate texts
@@ -221,8 +215,8 @@ brew "vapor" # Command-line tool for Vapor (Server-side Swift web framework) -> 
 brew "xcbeautify" # Little beautifier tool for xcodebuild
 # mas "Xcode", id: 497799835 # -> Xcode being installed using xcodes
 brew "xcodegen" # Generate your Xcode project from a spec file and your folder structure
-brew "xcodes" # Best command-line tool to install and switch between multiple versions of Xcode
-# cask "xcodes" # Install and switch between multiple versions of Xcode -> App version of xcodes command-line tool
+brew "xcodesorg/made/xcodes" # Best command-line tool to install and switch between multiple versions of Xcode
+# cask "xcodesorg/made/xcodes" # Install and switch between multiple versions of Xcode -> App version of xcodes command-line tool
 
 ### AMS ###
 cask "bitwarden" # Desktop password and login vault
@@ -230,5 +224,5 @@ cask "bitwarden" # Desktop password and login vault
 cask "jetbrains-toolbox" # JetBrains tools manager
 brew "kdoctor" # Environment diagnostics for Kotlin Multiplatform Mobile app development -> Kotlin Multiplatform
 cask "microsoft-teams" # Meet, chat, call, and collaborate in just one place
-brew "tart" # macOS and Linux VMs on Apple Silicon to use in CI and other automations
+brew "cirruslabs/cli/tart" # macOS and Linux VMs on Apple Silicon to use in CI and other automations
 
