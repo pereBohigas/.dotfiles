@@ -72,6 +72,9 @@
 	default = current
 	followtags = true # push new tags along with commits being pushed
 
+[rebase]
+	updateRefs = true
+
 [receive]
 	fsckobjects = true # avoid data corruption
 
