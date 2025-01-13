@@ -1,0 +1,5 @@
+# Global configuration
+Host *
+	AddKeysToAgent yes
+	UseKeychain yes # this option is only needed to save the keys passphrase in the Keychain (if they have one)
+
