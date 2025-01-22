@@ -111,6 +111,7 @@ brew "eza" # Modern, maintained replacement for ls
 brew "fd" # Simple, fast and user-friendly alternative to find
 brew "fx" # Terminal JSON viewer
 brew "gitleaks" # Audit git repos for secrets
+cask "gitup" # Git interface focused on visual interaction
 brew "glow" # Render markdown on the CLI
 cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
 brew "gtypist" # GNU typing tutor
@@ -121,10 +122,12 @@ brew "jq" # Lightweight and flexible command-line JSON processor
 brew "jql" # JSON query language CLI tool
 brew "mise" # Polyglot runtime manager (asdf rust clone)
 brew "pass" # Password manager
+brew "posting" # Modern API client that lives in your terminal
 brew "pinentry-mac" # Pinentry for GPG on Mac
 brew "qpdf" # Tools for and transforming and inspecting PDF files
 brew "parallel" # Shell command parallelization utility
 brew "pkl" # CLI for the Pkl programming language
+brew "rainfrog" # Database management TUI for Postgres
 brew "ripgrep" # Search tool like grep and The Silver Searcher
 brew "sd" # Intuitive find & replace CLI
 brew "tabiew" # TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
