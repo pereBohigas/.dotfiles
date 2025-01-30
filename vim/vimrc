@@ -28,9 +28,6 @@ set clipboard=unnamed
 " Enable syntax highlighting
 syntax enable
 
-" Highlight results
-set nohlsearch
-
 " Incremental search
 set incsearch
 
