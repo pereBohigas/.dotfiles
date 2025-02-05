@@ -104,6 +104,7 @@ cask "keymapp" # ZSA keyboard firmware flasher
 brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
 brew "bottom" # Yet another cross-platform graphical process/system monitor
 brew "cheat" # Create and view interactive cheat sheets for *nix commands
+brew "curlie" # Power of curl, ease of use of httpie
 brew "duf" # Disk Usage/Free Utility - a better 'df' alternative
 brew "drill" # HTTP load testing application written in Rust
 brew "dust" # More intuitive version of du in rust
@@ -173,6 +174,7 @@ brew "defaultbrowser" # Command-line tool for getting & setting the default brow
 cask "exifcleaner" # Metadata cleaner -> NOT M1 COMPATIBLE
 cask "hammerspoon" # Desktop automation application
 cask "imageoptim" # Tool to optimize images to a smaller size
+cask "leader-key" # Application launcher
 cask "maccy" # Clipboard manager
 cask "monitorcontrol" # Tool to control external monitor brightness & volume
 # cask "qlmarkdown" # QuickLook generator for Markdown files
