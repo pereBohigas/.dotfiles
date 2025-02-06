@@ -1,0 +1,116 @@
+{
+  "actions" : [
+    {
+      "type" : "application",
+      "label" : "",
+      "value" : "/Applications/Alacritty.app",
+      "key" : "t"
+    },
+    {
+      "label" : "Browser",
+      "key" : "b",
+      "actions" : [
+        {
+          "value" : "/Applications/Brave Browser.app",
+          "key" : "b",
+          "type" : "application",
+          "label" : "Brave"
+        },
+        {
+          "type" : "application",
+          "value" : "/Applications/Firefox.app",
+          "label" : "",
+          "key" : "f"
+        }
+      ],
+      "type" : "group"
+    },
+    {
+      "type" : "group",
+      "actions" : [
+        {
+          "type" : "application",
+          "label" : "",
+          "value" : "/Applications/Slack.app",
+          "key" : "l"
+        },
+        {
+          "key" : "s",
+          "type" : "application",
+          "label" : "",
+          "value" : "/Applications/Signal.app"
+        },
+        {
+          "type" : "application",
+          "value" : "/Applications/Telegram.app",
+          "key" : "t",
+          "label" : ""
+        },
+        {
+          "type" : "application",
+          "key" : "w",
+          "label" : "",
+          "value" : "/Applications/WhatsApp.app"
+        }
+      ],
+      "label" : "Messaging",
+      "key" : "m"
+    },
+    {
+      "label" : "Work",
+      "key" : "w",
+      "type" : "group",
+      "actions" : [
+        {
+          "type" : "url",
+          "key" : "n",
+          "label" : "Obsidian",
+          "value" : "obsidian://open?vault=ams"
+        },
+        {
+          "label" : "Outlook",
+          "type" : "application",
+          "key" : "o",
+          "value" : "/Applications/Microsoft Outlook.app"
+        },
+        {
+          "key" : "t",
+          "label" : "Teams",
+          "value" : "/Applications/Microsoft Teams.app",
+          "type" : "application"
+        },
+        {
+          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://seproxy.bitmarck-software.de/jira/secure/RapidBoard.jspa?rapidView=1000&view=detail&selectedIssue=PK-675103#\"",
+          "label" : "Jira",
+          "key" : "j",
+          "type" : "command"
+        },
+        {
+          "label" : "Confluence",
+          "key" : "c",
+          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://seproxy.bitmarck-software.de/confluence/display/DIGI/FormBuilder+Service+-+aka+Formularmanager\"",
+          "type" : "command"
+        },
+        {
+          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://www.deepl.com/de/translator\"",
+          "key" : "d",
+          "type" : "command",
+          "label" : "DeepL"
+        },
+        {
+          "label" : "LanguageTool",
+          "key" : "l",
+          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://languagetool.org/de/\"",
+          "type" : "command"
+        }
+      ]
+    },
+    {
+      "value" : "/Applications/Spotify.app",
+      "key" : "s",
+      "type" : "application",
+      "label" : ""
+    }
+  ],
+  "type" : "group"
+}
