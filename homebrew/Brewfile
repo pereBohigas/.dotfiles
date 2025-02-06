@@ -53,7 +53,8 @@ brew "telnet" # User interface to the TELNET protocol
 
 ### Images & Containers ###
 # cask "balenaetcher" # Tool to flash OS images to SD cards & USB drives -> NOT M1 COMPATIBLE
-brew "docker" # App to build and share containerized applications and microservices
+# brew "docker" # App to build and share containerized applications and microservices
+brew "podman" # Tool for managing OCI containers and pods
 cask "raspberry-pi-imager" # Imaging utility to install operating systems to a microSD card -> NOT M1 COMPATIBLE
 
 ### Image tools ###
@@ -172,7 +173,7 @@ cask "blackhole-2ch" # Virtual Audio Driver
 # cask "blackhole-16ch" # virtual audio driver (internal audio routing)
 brew "defaultbrowser" # Command-line tool for getting & setting the default browser
 cask "exifcleaner" # Metadata cleaner -> NOT M1 COMPATIBLE
-cask "hammerspoon" # Desktop automation application
+# cask "hammerspoon" # Desktop automation application
 cask "imageoptim" # Tool to optimize images to a smaller size
 cask "leader-key" # Application launcher
 cask "maccy" # Clipboard manager
