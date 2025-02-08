@@ -76,3 +76,8 @@
 
 - [ ] Activate Touch ID
 
+- [ ] Disable text spelling autocorrection
+> in German go to Systemeinstellungen > Tastatur > Texteingabe > Eingabequellen > Bearbeiten... > disable "Rechschreibung automatisch korrigieren" und "Wörter automatisch groß schreiben“ deaktivieren
+>
+> in English got to System Preferences > Keyboard > Text Input > Input Sources > Edit... > disable "Correct spelling automatically" and "Capitalize words automatically"
+
