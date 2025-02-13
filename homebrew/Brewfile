@@ -44,6 +44,7 @@ brew "lazygit" # Simple terminal UI for git commands
 
 ### Networking tools ###
 brew "julien-cpsn/atac/atac" # A simple API client (postman like) in your terminal
+cask "hoppscotch" # Open source API development ecosystem
 # cask "proxyman" # Modern and intuitive HTTP Debugging Proxy app
 
 ### Development tools ###
@@ -88,10 +89,9 @@ mas "Keynote", id: 409183694
 cask "languagetool" # LanguageTool for Desktop
 cask "libreoffice" # Office suite
 cask "mactex" # Full TeX Live distribution with GUI applications
-# cask "microsoft-office" # Microsoft Office suite
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
-mas "Microsoft Powerpoint", id: 462062816
+mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -168,7 +168,6 @@ mas "reMarkable", id: 1276493162 # View, Screen Share, organize, import, and dow
 # cask aerospace # AeroSpace is an i3-like tiling window manager for macOS
 cask "amethyst" # Automatic tiling window manager similar to xmonad
 cask "appcleaner" # Application uninstaller
-cask "cheatsheet" # Tool to list all active shortcuts of the current application
 cask "blackhole-2ch" # Virtual Audio Driver
 # cask "blackhole-16ch" # virtual audio driver (internal audio routing)
 brew "defaultbrowser" # Command-line tool for getting & setting the default browser
@@ -178,6 +177,8 @@ cask "imageoptim" # Tool to optimize images to a smaller size
 cask "leader-key" # Application launcher
 cask "maccy" # Clipboard manager
 cask "monitorcontrol" # Tool to control external monitor brightness & volume
+# noTunes Setup: defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
+cask "notunes" # Simple application that will prevent iTunes or Apple Music from launching
 # cask "qlmarkdown" # QuickLook generator for Markdown files
 # cask "rectangle" # Move and resize windows using keyboard shortcuts or snap areas
 cask "shortcat" # App that enables mouse-free UI interaction
@@ -204,7 +205,6 @@ cask "zoom" # Video communication and virtual meeting platform
 
 ### Multimedia tools ###
 mas "GarageBand", id: 682658836
-brew "gifski" # Highest-quality GIF encoder based on pngquant
 mas "Gifski", id: 1351639930
 cask "handbrake" # Open-source video transcoder
 mas "iMovie", id: 408981434
@@ -237,8 +237,9 @@ brew "xcodesorg/made/xcodes" # Best command-line tool to install and switch betw
 
 ### AMS ###
 cask "bitwarden" # Desktop password and login vault
+# cask "citrix-workspace" # Managed desktop virtualization solution
 # cask "intune-company-portal" # Enroll your macOS device using the Company Portal app
 cask "jetbrains-toolbox" # JetBrains tools manager
 brew "kdoctor" # Environment diagnostics for Kotlin Multiplatform Mobile app development -> Kotlin Multiplatform
 cask "microsoft-teams" # Meet, chat, call, and collaborate in just one place
-brew "cirruslabs/cli/tart" # macOS and Linux VMs on Apple Silicon to use in CI and other automations
+
