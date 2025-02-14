@@ -86,7 +86,7 @@ mas "Consent-O-Matic", id: 1606897889
 ### Office tools ###
 cask "deepl" # Trains AIs to understand and translate texts
 mas "Keynote", id: 409183694
-cask "languagetool" # LanguageTool for Desktop
+mas "LanguageTool", id: 1534275760
 cask "libreoffice" # Office suite
 cask "mactex" # Full TeX Live distribution with GUI applications
 mas "Microsoft Excel", id: 462058435
@@ -99,7 +99,7 @@ cask "skim" # PDF reader and note-taking application
 # cask "zotero" # Collect, organize, cite, and share research sources -> NOT M1 COMPATIBLE
 
 ### Keyboard Tools ###
-cask "keymapp" # ZSA keyboard firmware flasher
+mas "Keymapp", id: 6472865291 # ZSA keyboard firmware flasher
 
 ### Command line tools ###
 brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
@@ -197,10 +197,10 @@ cask "syncthing" # Real time file synchronization software
 ### Comunication ###
 # cask "mumble" # Open-source, low-latency, high quality voice chat software for gaming
 cask "signal" # Instant messaging application focusing on security
-cask "slack" # Team communication and collaboration software
+mas "Slack", id: 803453959 # Team communication and collaboration software
 cask "studiolinkstandalone" # SIP application to create high quality Audio over IP (AoIP) connections
 cask "telegram" # Messaging app with a focus on speed and security
-cask "whatsapp" # Desktop client for WhatsApp -> NOT M1 COMPATIBLE
+mas "WhatsApp", id: 310633997
 cask "zoom" # Video communication and virtual meeting platform
 
 ### Multimedia tools ###
@@ -218,7 +218,7 @@ mas "Apple Configurator", id: 899247664
 # brew "bartycrouch" # Incrementally update/translate your Strings files
 brew "dependency-check" # OWASP dependency-check
 mas "Dev Jobs", id: 1578276279
-mas "Developer", id: 640199958
+mas "Developer", id: 640199958 # Apple Developer
 # brew "licenseplist" # License list generator of all your dependencies for iOS applications
 brew "mint" # Dependency manager that installs and runs Swift command-line tool packages
 cask "sf-symbols" # Tool that provides consistent, highly configurable symbols for apps
@@ -230,13 +230,13 @@ brew "swift-protobuf" # Plugin and runtime library for using protobuf with Swift
 mas "TestFlight", id: 899247664
 brew "vapor" # Command-line tool for Vapor (Server-side Swift web framework) -> requires first installing Xcode
 brew "xcbeautify" # Little beautifier tool for xcodebuild
-# mas "Xcode", id: 497799835 # -> Xcode being installed using xcodes
+# mas "Xcode", id: 497799835 # <- Xcode being installed using xcodes
 brew "xcodegen" # Generate your Xcode project from a spec file and your folder structure
 brew "xcodesorg/made/xcodes" # Best command-line tool to install and switch between multiple versions of Xcode
 # cask "xcodesorg/made/xcodes" # Install and switch between multiple versions of Xcode -> App version of xcodes command-line tool
 
 ### AMS ###
-cask "bitwarden" # Desktop password and login vault
+mas "Bitwarden", id: 1352778147 # Desktop password and login vault
 # cask "citrix-workspace" # Managed desktop virtualization solution
 # cask "intune-company-portal" # Enroll your macOS device using the Company Portal app
 cask "jetbrains-toolbox" # JetBrains tools manager
