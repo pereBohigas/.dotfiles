@@ -1,5 +1,8 @@
 # Global configuration
 Host *
 	AddKeysToAgent yes
+	PreferredAuthentications publickey
 	UseKeychain yes # this option is only needed to save the keys passphrase in the Keychain (if they have one)
+
+Include hosts/*
 
