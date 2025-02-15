@@ -12,20 +12,24 @@ brew "mas" # Mac App Store command-line interface
 cask "font-roboto-mono-nerd-font"
 
 ### Version managers ###
+brew "mise" # Polyglot runtime manager (asdf rust clone)
 brew "nvm" # Manage multiple Node.js versions
 brew "pyenv" # Python version management
 brew "rbenv" # Ruby version manager
 
-### Zsh plugins ###
-brew "fzf" # Command-line fuzzy finder written in Go
+### Shell plugins ###
 brew "jandedobbeleer/oh-my-posh/oh-my-posh" # Prompt theme engine for any shell
+brew "parallel" # Shell command parallelization utility
 # brew "starship" # Cross-shell prompt for astronauts
+brew "zoxide" # Shell extension to navigate your filesystem faster
 brew "zsh-autosuggestions" # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-syntax-highlighting" # Fish shell like syntax highlighting for zsh
 brew "zsh-vi-mode" # Better and friendly vi(vim) mode plugin for ZSH
 
 ### Compilers ###
 brew "ghcup" # Installer for the general purpose language Haskell
+brew "make" # Utility for directing compilation
+brew "pkl" # CLI for the Pkl programming language
 brew "rust" # Safe, concurrent, practical language
 
 ### Editors ###
@@ -35,39 +39,51 @@ cask "zed" # Multiplayer code editor
 ### Version control ###
 cask "fork" # GIT client
 brew "git" # Distributed revision control system
-brew "gitui" # Blazing fast terminal-ui for git written in rust
 brew "git-delta" # Syntax-highlighting pager for git and diff output
 brew "git-lfs" # Git extension for versioning large files
+brew "gitleaks" # Audit git repos for secrets
+brew "gitui" # Blazing fast terminal-ui for git written in rust
+cask "gitup" # Git interface focused on visual interaction
+brew "hub" # Add GitHub support to git on the command-line
 brew "lazygit" # Simple terminal UI for git commands
+
+### File/Memory management ###
+brew "duf" # Disk Usage/Free Utility - a better 'df' alternative
+brew "dust" # More intuitive version of du in rust
+brew "tree" # Display directories as trees (with optional color/HTML output)
+brew "yazi" # Blazing fast terminal file manager written in Rust, based on async I/O
+
+### Process/System monitor ###
+brew "bottom" # Yet another cross-platform graphical process/system monitor
+brew "htop" # Improved top (interactive process viewer)
 
 ### VPN ###
 # brew "openconnect" # Open client for Cisco AnyConnect VPN
 
-### Networking tools ###
+### Networking ###
 brew "julien-cpsn/atac/atac" # A simple API client (postman like) in your terminal
+brew "curlie" # Power of curl, ease of use of httpie
+brew "drill" # HTTP load testing application written in Rust
 cask "hoppscotch" # Open source API development ecosystem
+brew "posting" # Modern API client that lives in your terminal
 # cask "proxyman" # Modern and intuitive HTTP Debugging Proxy app
-
-### Development tools ###
-brew "protobuf" # Protocol buffers (Google's data interchange format)
-brew "make" # Utility for directing compilation
 brew "telnet" # User interface to the TELNET protocol
+brew "xh" # Friendly and fast tool for sending HTTP requests
 
-### Images & Containers ###
+### Virtualization & Containers ###
 # cask "balenaetcher" # Tool to flash OS images to SD cards & USB drives -> NOT M1 COMPATIBLE
+# cask "citrix-workspace" # Managed desktop virtualization solution >>> AMS <<<
 # brew "docker" # App to build and share containerized applications and microservices
 brew "podman" # Tool for managing OCI containers and pods
 cask "raspberry-pi-imager" # Imaging utility to install operating systems to a microSD card -> NOT M1 COMPATIBLE
 
-### Image tools ###
+### Image editing/manipulation ###
 cask "drawio" # Draw.io is free online diagram software
 cask "gimp" # Free and open-source image editor -> NOT M1 COMPATIBLE
-brew "ghostscript" # Interpreter for PostScript and PDF
 brew "imagemagick" # Tools and libraries to manipulate images in many formats
+cask "imageoptim" # Tool to optimize images to a smaller size
 cask "inkscape" # Vector graphics editor
-# cask "imageoptim" # Tool to optimize images to a smaller size -> NOT M1 COMPATIBLE
-brew "tesseract" # OCR (Optical Character Recognition) engine
-brew "tesseract-lang" # Enables extra languages support for Tesseract
+brew "viu" # Simple terminal image viewer written in Rust
 # cask "zeplin" # Share, organize and collaborate on designs
 
 ### Compression ###
@@ -83,10 +99,16 @@ cask "firefox" # Web browser
 # brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
 mas "Consent-O-Matic", id: 1606897889
 
-### Office tools ###
+### PDF inspection/manipulation ###
+brew "ghostscript" # Interpreter for PostScript and PDF
+cask "skim" # PDF reader and note-taking application
+
+### Writing ###
 cask "deepl" # Trains AIs to understand and translate texts
-mas "Keynote", id: 409183694
 mas "LanguageTool", id: 1534275760
+
+### Office tools ###
+mas "Keynote", id: 409183694
 cask "libreoffice" # Office suite
 cask "mactex" # Full TeX Live distribution with GUI applications
 mas "Microsoft Excel", id: 462058435
@@ -95,56 +117,42 @@ mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-cask "skim" # PDF reader and note-taking application
 # cask "zotero" # Collect, organize, cite, and share research sources -> NOT M1 COMPATIBLE
 
 ### Keyboard Tools ###
+brew "gnu-typist" # GNU typing tutor
 mas "Keymapp", id: 6472865291 # ZSA keyboard firmware flasher
 
-### Command line tools ###
-brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
-brew "bottom" # Yet another cross-platform graphical process/system monitor
+### User manual ###
 brew "cheat" # Create and view interactive cheat sheets for *nix commands
-brew "cmatrix" # Console Matrix
-brew "curlie" # Power of curl, ease of use of httpie
-brew "duf" # Disk Usage/Free Utility - a better 'df' alternative
-brew "drill" # HTTP load testing application written in Rust
-brew "dust" # More intuitive version of du in rust
+brew "tldr" # Simplified and community-driven man pages
+
+### File inspection ###
+brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
+cask "exifcleaner" # Metadata cleaner -> NOT M1 COMPATIBLE
 brew "eza" # Modern, maintained replacement for ls
-brew "fd" # Simple, fast and user-friendly alternative to find
 brew "fx" # Terminal JSON viewer
-brew "gitleaks" # Audit git repos for secrets
-cask "gitup" # Git interface focused on visual interaction
 brew "glow" # Render markdown on the CLI
-cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
-brew "gnu-typist" # GNU typing tutor
-brew "hexyl" # Command-line hex viewer
-brew "htop" # Improved top (interactive process viewer)
-brew "hub" # Add GitHub support to git on the command-line
 brew "jq" # Lightweight and flexible command-line JSON processor
 brew "jql" # JSON query language CLI tool
-brew "mise" # Polyglot runtime manager (asdf rust clone)
-brew "pass" # Password manager
-brew "posting" # Modern API client that lives in your terminal
-brew "pinentry-mac" # Pinentry for GPG on Mac
 brew "qpdf" # Tools for and transforming and inspecting PDF files
-brew "parallel" # Shell command parallelization utility
-brew "pkl" # CLI for the Pkl programming language
-brew "rainfrog" # Database management TUI for Postgres
+brew "hexyl" # Command-line hex viewer
+brew "tabiew" # TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
+brew "tesseract" # OCR (Optical Character Recognition) engine
+brew "tesseract-lang" # Enables extra languages support for Tesseract
+brew "xq" # Command-line XML and HTML beautifier and content extractor
+brew "yq" # Process YAML, JSON, XML, CSV and properties documents from the CLI
+
+### File and content search ###
+brew "fd" # Simple, fast and user-friendly alternative to find
+brew "fzf" # Command-line fuzzy finder written in Go
 brew "ripgrep" # Search tool like grep and The Silver Searcher
 brew "sd" # Intuitive find & replace CLI
-brew "tabiew" # TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
-brew "tldr" # Simplified and community-driven man pages
-brew "tree" # Display directories as trees (with optional color/HTML output)
-brew "viu" # Simple terminal image viewer written in Rust
-brew "xh" # Friendly and fast tool for sending HTTP requests
-brew "xq" # Command-line XML and HTML beautifier and content extractor
-brew "yazi" # Blazing fast terminal file manager written in Rust, based on async I/O
-brew "yq" # Process YAML, JSON, XML, CSV and properties documents from the CLI
-brew "zoxide" # Shell extension to navigate your filesystem faster
 
 ### Terminal ###
 cask "alacritty" # GPU-accelerated terminal emulator
+brew "cmatrix" # Console Matrix
+cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
 brew "zellij" # Pluggable terminal workspace, with terminal multiplexer as the base feature
 
 ### Time management ###
@@ -152,8 +160,11 @@ brew "zellij" # Pluggable terminal workspace, with terminal multiplexer as the b
 # cask "clockify" # Time tracking tool for agencies and freelancers
 # cask "michaelvillar-timer" # Timer application
 
-### Password managers ###
+### Password management ###
 # cask "1password" # Password manager that keeps all passwords secure behind one password
+mas "Bitwarden", id: 1352778147 # Desktop password and login vault
+brew "pass" # Password manager
+brew "pinentry-mac" # Pinentry for GPG on Mac
 # cask "keeweb" # Password manager compatible with KeePass
 cask "macpass" # Open-source, KeePass-client and password manager
 
@@ -161,32 +172,33 @@ cask "macpass" # Open-source, KeePass-client and password manager
 cask "dbeaver-community" # Universal database tool and SQL client
 cask "pgadmin4" # Administration and development platform for PostgreSQL
 brew "postgresql@17" # Object-relational database system
+brew "rainfrog" # Database management TUI for Postgres
 
 ### Note taking ###
 # cask "notion" # App to write, plan, collaborate, and get organized
 cask "obsidian" # Knowledge base that works on top of a local folder of plain text Markdown files
 mas "reMarkable", id: 1276493162 # View, Screen Share, organize, import, and download files to a reMarkable device
 
-### Operating system utilities ###
+### Windows management ###
 # cask nikitabobko/tap/aerospace # AeroSpace is an i3-like tiling window manager for macOS
 cask "amethyst" # Automatic tiling window manager similar to xmonad
+# cask "rectangle" # Move and resize windows using keyboard shortcuts or snap areas
+# brew "yabai" # A tiling window manager for macOS based on binary space partitioning
+
+### macOS utilities ###
 cask "appcleaner" # Application uninstaller
 cask "blackhole-2ch" # Virtual Audio Driver
 # cask "blackhole-16ch" # virtual audio driver (internal audio routing)
 brew "defaultbrowser" # Command-line tool for getting & setting the default browser
-cask "exifcleaner" # Metadata cleaner -> NOT M1 COMPATIBLE
 # cask "hammerspoon" # Desktop automation application
-cask "imageoptim" # Tool to optimize images to a smaller size
 cask "leader-key" # Application launcher
 cask "maccy" # Clipboard manager
 cask "monitorcontrol" # Tool to control external monitor brightness & volume
 # noTunes Setup: defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
 cask "notunes" # Simple application that will prevent iTunes or Apple Music from launching
 # cask "qlmarkdown" # QuickLook generator for Markdown files
-# cask "rectangle" # Move and resize windows using keyboard shortcuts or snap areas
 cask "shortcat" # App that enables mouse-free UI interaction
 # brew "skhd" # Simple hotkey-daemon for macOS
-# brew "yabai" # A tiling window manager for macOS based on binary space partitioning
 
 ### Learning ###
 cask "anki" # Memory training application
@@ -197,7 +209,8 @@ mas "OX Drive", id: 818195014 # Cloud client
 #cask "seafile-client" # File syncing client -> NOT M1 COMPATIBLE
 cask "syncthing" # Real time file synchronization software
 
-### Comunication ###
+### Messaging/Video call ###
+cask "microsoft-teams" # [AMS] Meet, chat, call, and collaborate in just one place
 # cask "mumble" # Open-source, low-latency, high quality voice chat software for gaming
 cask "signal" # Instant messaging application focusing on security
 mas "Slack", id: 803453959 # Team communication and collaboration software
@@ -206,15 +219,21 @@ cask "telegram" # Messaging app with a focus on speed and security
 mas "WhatsApp", id: 310633997
 cask "zoom" # Video communication and virtual meeting platform
 
-### Multimedia tools ###
-mas "GarageBand", id: 682658836
+### Video creation/playback ###
 mas "Gifski", id: 1351639930
 cask "handbrake" # Open-source video transcoder
 mas "iMovie", id: 408981434
 cask "shotcut" # Video editor
+cask "vlc" # Multimedia player
+
+### Music creation/playback ###
+mas "GarageBand", id: 682658836
 cask "sonos" # Control your Sonos system
 cask "spotify" # Music streaming service
-cask "vlc" # Multimedia player
+
+### Android development ###
+cask "jetbrains-toolbox" # [AMS] JetBrains tools manager
+brew "kdoctor" # [AMS] Environment diagnostics for Kotlin Multiplatform Mobile app development -> Kotlin Multiplatform
 
 ### iOS development ###
 mas "Apple Configurator", id: 899247664
@@ -232,18 +251,12 @@ brew "swiftlint" # Tool to enforce Swift style and conventions
 brew "swift-format" # Formatting technology for Swift source code
 brew "swift-protobuf" # Plugin and runtime library for using protobuf with Swift
 mas "TestFlight", id: 899247664
-brew "vapor" # Command-line tool for Vapor (Server-side Swift web framework) -> requires first installing Xcode
-brew "xcbeautify" # Little beautifier tool for xcodebuild
 # mas "Xcode", id: 497799835 # <- Xcode being installed using xcodes
-brew "xcodegen" # Generate your Xcode project from a spec file and your folder structure
 brew "xcodesorg/made/xcodes" # Best command-line tool to install and switch between multiple versions of Xcode
 # cask "xcodesorg/made/xcodes" # Install and switch between multiple versions of Xcode -> App version of xcodes command-line tool
-
-### AMS ###
-mas "Bitwarden", id: 1352778147 # Desktop password and login vault
-# cask "citrix-workspace" # Managed desktop virtualization solution
-# cask "intune-company-portal" # Enroll your macOS device using the Company Portal app
-cask "jetbrains-toolbox" # JetBrains tools manager
-brew "kdoctor" # Environment diagnostics for Kotlin Multiplatform Mobile app development -> Kotlin Multiplatform
-cask "microsoft-teams" # Meet, chat, call, and collaborate in just one place
+brew "xcbeautify" # Little beautifier tool for xcodebuild
+brew "xcodegen" # Generate your Xcode project from a spec file and your folder structure
+# Vapor Setup:
+system 'xcodes install --latest'
+brew "vapor" # Command-line tool for Vapor (Server-side Swift web framework) -> requires first installing Xcode
 
