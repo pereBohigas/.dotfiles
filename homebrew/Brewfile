@@ -18,16 +18,17 @@ brew "rbenv" # Ruby version manager
 
 ### Zsh plugins ###
 brew "fzf" # Command-line fuzzy finder written in Go
+brew "jandedobbeleer/oh-my-posh/oh-my-posh" # Prompt theme engine for any shell
+# brew "starship" # Cross-shell prompt for astronauts
 brew "zsh-autosuggestions" # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-syntax-highlighting" # Fish shell like syntax highlighting for zsh
 brew "zsh-vi-mode" # Better and friendly vi(vim) mode plugin for ZSH
-brew "jandedobbeleer/oh-my-posh/oh-my-posh" # Prompt theme engine for any shell
 
 ### Compilers ###
+brew "ghcup" # Installer for the general purpose language Haskell
 brew "rust" # Safe, concurrent, practical language
 
 ### Editors ###
-# cask "macdown" # Open-source Markdown editor -> NOT M1 COMPATIBLE
 brew "neovim" # Ambitious Vim-fork focused on extensibility and agility
 cask "zed" # Multiplayer code editor
 
@@ -71,7 +72,6 @@ brew "tesseract-lang" # Enables extra languages support for Tesseract
 
 ### Compression ###
 cask "keka" # File archiver
-# brew "xz" # General-purpose data compression with high compression ratio -> required to install mactex updates
 
 ### Internet browser ###
 cask "brave-browser" # Web browser focusing on privacy
@@ -80,7 +80,7 @@ cask "firefox" # Web browser
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-firefox-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
 # Browserpass setup for Brave:
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-brave-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
-brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
+# brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
 mas "Consent-O-Matic", id: 1606897889
 
 ### Office tools ###
@@ -105,6 +105,7 @@ mas "Keymapp", id: 6472865291 # ZSA keyboard firmware flasher
 brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
 brew "bottom" # Yet another cross-platform graphical process/system monitor
 brew "cheat" # Create and view interactive cheat sheets for *nix commands
+brew "cmatrix" # Console Matrix
 brew "curlie" # Power of curl, ease of use of httpie
 brew "duf" # Disk Usage/Free Utility - a better 'df' alternative
 brew "drill" # HTTP load testing application written in Rust
@@ -116,7 +117,7 @@ brew "gitleaks" # Audit git repos for secrets
 cask "gitup" # Git interface focused on visual interaction
 brew "glow" # Render markdown on the CLI
 cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
-brew "gtypist" # GNU typing tutor
+brew "gnu-typist" # GNU typing tutor
 brew "hexyl" # Command-line hex viewer
 brew "htop" # Improved top (interactive process viewer)
 brew "hub" # Add GitHub support to git on the command-line
@@ -158,6 +159,8 @@ cask "macpass" # Open-source, KeePass-client and password manager
 
 ### Database ###
 cask "dbeaver-community" # Universal database tool and SQL client
+cask "pgadmin4" # Administration and development platform for PostgreSQL
+brew "postgresql@17" # Object-relational database system
 
 ### Note taking ###
 # cask "notion" # App to write, plan, collaborate, and get organized
@@ -165,7 +168,7 @@ cask "obsidian" # Knowledge base that works on top of a local folder of plain te
 mas "reMarkable", id: 1276493162 # View, Screen Share, organize, import, and download files to a reMarkable device
 
 ### Operating system utilities ###
-# cask aerospace # AeroSpace is an i3-like tiling window manager for macOS
+# cask nikitabobko/tap/aerospace # AeroSpace is an i3-like tiling window manager for macOS
 cask "amethyst" # Automatic tiling window manager similar to xmonad
 cask "appcleaner" # Application uninstaller
 cask "blackhole-2ch" # Virtual Audio Driver
@@ -215,17 +218,18 @@ cask "vlc" # Multimedia player
 
 ### iOS development ###
 mas "Apple Configurator", id: 899247664
-# brew "bartycrouch" # Incrementally update/translate your Strings files
 brew "dependency-check" # OWASP dependency-check
 mas "Dev Jobs", id: 1578276279
 mas "Developer", id: 640199958 # Apple Developer
 # brew "licenseplist" # License list generator of all your dependencies for iOS applications
+brew "lizard-analyzer" # Extensible Cyclomatic Complexity Analyzer
 brew "mint" # Dependency manager that installs and runs Swift command-line tool packages
 cask "sf-symbols" # Tool that provides consistent, highly configurable symbols for apps
 # cask "swiftybeaver" # Access your app logs in development & release with end-to-end encryption -> NOT M1 COMPATIBLE
 # brew "swiftenv" # Swift version manager
 brew "swiftgen" # Swift code generator for assets, storyboards, Localizable.strings, …
 brew "swiftlint" # Tool to enforce Swift style and conventions
+brew "swift-format" # Formatting technology for Swift source code
 brew "swift-protobuf" # Plugin and runtime library for using protobuf with Swift
 mas "TestFlight", id: 899247664
 brew "vapor" # Command-line tool for Vapor (Server-side Swift web framework) -> requires first installing Xcode
