@@ -72,7 +72,7 @@ brew "xh" # Friendly and fast tool for sending HTTP requests
 
 ### Virtualization & Containers ###
 # cask "balenaetcher" # Tool to flash OS images to SD cards & USB drives -> NOT M1 COMPATIBLE
-# cask "citrix-workspace" # Managed desktop virtualization solution >>> AMS <<<
+cask "citrix-workspace" if system(%q[mdfind "kMDItemKind == 'Application'" | grep -q "Endpoint Security VPN\.app$"]) # [AMS] Managed desktop virtualization solution
 # brew "docker" # App to build and share containerized applications and microservices
 brew "podman" # Tool for managing OCI containers and pods
 cask "raspberry-pi-imager" # Imaging utility to install operating systems to a microSD card -> NOT M1 COMPATIBLE
@@ -96,7 +96,7 @@ cask "firefox" # Web browser
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-firefox-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
 # Browserpass setup for Brave:
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-brave-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
-# brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
+brew "amar1729/homebrew-formulae/browserpass" if system(%q[mdfind "kMDItemKind == 'Application'" | grep -c "Endpoint Security VPN\.app$" | { read output; test "$output" = "0" ;}]) # Host application for browser extension providing access to your password store
 mas "Consent-O-Matic", id: 1606897889
 
 ### PDF inspection/manipulation ###
@@ -256,7 +256,5 @@ brew "xcodesorg/made/xcodes" # Best command-line tool to install and switch betw
 # cask "xcodesorg/made/xcodes" # Install and switch between multiple versions of Xcode -> App version of xcodes command-line tool
 brew "xcbeautify" # Little beautifier tool for xcodebuild
 brew "xcodegen" # Generate your Xcode project from a spec file and your folder structure
-# Vapor Setup:
-system 'xcodes install --latest'
-brew "vapor" # Command-line tool for Vapor (Server-side Swift web framework) -> requires first installing Xcode
+brew "vapor" if system(%q[mdfind "kMDItemKind == 'Application'" | grep -qE "Xcode-[0-9]*\.[0-9]*\.[0-9]*\.app$"]) # Command-line tool for Vapor (Server-side Swift web framework) -> requires Xcode
 
