@@ -7,10 +7,13 @@ customCommands:
   - key: 'X'
     context: 'global'
     command: >-
-      xed . && osascript -e 'tell app "XCode" to close window 0'
+      osascript -e 'quit app "Xcode"'
+      rm -rf "~/Library/Developer/Xcode/DerivedData"
     description: 'Closes Xcode on current project'
     loadingText: 'Closing Xcode on current project'
     #command: "kill $(ps aux | grep 'Xcode' | awk '{print $2}')"
+    #command: xed . && osascript -e 'tell app "XCode" to close window 0'
+    #command: killall Xcode
 git:
   autoFetch: true
   autoRefresh: true
