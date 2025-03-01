@@ -7,6 +7,12 @@
 [browser "firefox"]
 	cmd = open -a Firefox.app
 
+[column]
+	ui = auto # for supported commands show in columns if the output is to the terminal
+
+[commit]
+	verbose = true
+
 [core]
 	editor = nvim
 	excludesFile = ~/.config/git/global_gitignore
@@ -27,7 +33,9 @@
 
 [diff]
 	algorithm = histogram
-	colorMoved = default
+	colorMoved = true
+	mnemonicPrefix = true
+	renames = true
 	tool = nvimdiffs
 
 [difftool "nvimdiff"]
@@ -35,6 +43,7 @@
 	prompt = true
 
 [fetch]
+	all = true
 	fsckobjects = true # avoid data corruption
 	prune = true
 	prunetags = true
@@ -46,6 +55,8 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = main
 	templatedir = ~/.config/git/global_template
@@ -69,10 +80,12 @@
 
 [push]
 	autosetupremote = true
-	default = current
+	default = simple
 	followtags = true # push new tags along with commits being pushed
 
 [rebase]
+	autoSquash = true
+	autoStash = true
 	updateRefs = true
 
 [receive]
@@ -80,9 +93,11 @@
 
 [rerere] # REuse REcorded REsolution - Remember the resolution of git merge conflicts and automatically fix them on new occurrences
 	enable = true
+	autoupdate = true
 
 [tag]
-	sort = taggerdate # sort by most recently used tags
+	sort = version:refname
+	# sort = taggerdate # sort by most recently used tags
 
 [transfer]
 	fsckobjects = true # avoid data corruption
