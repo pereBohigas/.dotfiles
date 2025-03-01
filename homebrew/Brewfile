@@ -50,6 +50,7 @@ brew "lazygit" # Simple terminal UI for git commands
 ### File/Memory management ###
 brew "duf" # Disk Usage/Free Utility - a better 'df' alternative
 brew "dust" # More intuitive version of du in rust
+brew "superfile" # Modern and pretty fancy file manager for the terminal
 brew "tree" # Display directories as trees (with optional color/HTML output)
 brew "yazi" # Blazing fast terminal file manager written in Rust, based on async I/O
 
@@ -65,7 +66,6 @@ brew "julien-cpsn/atac/atac" # A simple API client (postman like) in your termin
 brew "curlie" # Power of curl, ease of use of httpie
 brew "drill" # HTTP load testing application written in Rust
 cask "hoppscotch" # Open source API development ecosystem
-brew "posting" # Modern API client that lives in your terminal
 # cask "proxyman" # Modern and intuitive HTTP Debugging Proxy app
 brew "telnet" # User interface to the TELNET protocol
 brew "xh" # Friendly and fast tool for sending HTTP requests
@@ -96,7 +96,7 @@ cask "firefox" # Web browser
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-firefox-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
 # Browserpass setup for Brave:
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-brave-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
-brew "amar1729/homebrew-formulae/browserpass" if system(%q[mdfind "kMDItemKind == 'Application'" | grep -c "Endpoint Security VPN\.app$" | { read output; test "$output" = "0" ;}]) # Host application for browser extension providing access to your password store
+brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
 mas "Consent-O-Matic", id: 1606897889
 
 ### PDF inspection/manipulation ###
@@ -122,6 +122,7 @@ mas "Pages", id: 409201541
 ### Keyboard Tools ###
 brew "gnu-typist" # GNU typing tutor
 mas "Keymapp", id: 6472865291 # ZSA keyboard firmware flasher
+brew "toipe" # Yet another typing test, but crab flavoured
 
 ### User manual ###
 brew "cheat" # Create and view interactive cheat sheets for *nix commands
