@@ -3,11 +3,12 @@
 # https://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-an-old-commit-in-git
 # https://stackoverflow.com/questions/1186535/how-do-i-modify-a-specific-commit
 
+# Format iso8601: YYY-MM-DD HH:MM:SS
 timestamp=$1
 
 # --date=now
 
-git rebase --interactive bbc643cd~
+git rebase --interactive HEAD~2
 
-git commit --amend --date="Wed Feb 16 14:00 2011 +0100" --no-edit
+GIT_AUTHOR_DATE=format:iso8601:"$timestamp" GIT_COMMITTER_DATE=format:iso8601:"$timestamp" git commit --amend --no-edit --date "$timestamp"
 

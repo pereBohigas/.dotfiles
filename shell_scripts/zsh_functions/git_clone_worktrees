@@ -22,6 +22,7 @@ echo "Directory created"
 git clone --bare $repositoryURL $repositoryDirectoryName/.bare
 
 echo "gitdir: ./.bare" > $repositoryDirectoryName/.git
+# alternative: symlink with `ln -s .bare .git` to be able to perform git commands in project directory
 
 git config --file $repositoryDirectoryName/.bare/config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 
