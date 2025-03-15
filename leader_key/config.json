@@ -2,31 +2,31 @@
   "actions" : [
     {
       "type" : "application",
+      "value" : "/Applications/Ghostty.app",
       "label" : "",
-      "value" : "/Applications/Alacritty.app",
       "key" : "t"
     },
     {
-      "label" : "Browser",
-      "key" : "b",
       "actions" : [
         {
-          "value" : "/Applications/Brave Browser.app",
           "key" : "b",
-          "type" : "application",
-          "label" : "Brave"
+          "label" : "Brave",
+          "value" : "/Applications/Brave Browser.app",
+          "type" : "application"
         },
         {
           "type" : "application",
           "value" : "/Applications/Firefox.app",
-          "label" : "",
-          "key" : "f"
+          "key" : "f",
+          "label" : ""
         }
       ],
-      "type" : "group"
+      "label" : "Browser",
+      "type" : "group",
+      "key" : "b"
     },
     {
-      "type" : "group",
+      "key" : "m",
       "actions" : [
         {
           "type" : "application",
@@ -35,81 +35,81 @@
           "key" : "l"
         },
         {
-          "key" : "s",
-          "type" : "application",
+          "value" : "/Applications/Signal.app",
           "label" : "",
-          "value" : "/Applications/Signal.app"
+          "key" : "s",
+          "type" : "application"
         },
         {
-          "type" : "application",
-          "value" : "/Applications/Telegram.app",
           "key" : "t",
-          "label" : ""
+          "label" : "",
+          "type" : "application",
+          "value" : "/Applications/Telegram.app"
         },
         {
-          "type" : "application",
           "key" : "w",
+          "type" : "application",
           "label" : "",
           "value" : "/Applications/WhatsApp.app"
         }
       ],
-      "label" : "Messaging",
-      "key" : "m"
+      "type" : "group",
+      "label" : "Messaging"
     },
     {
-      "label" : "Work",
-      "key" : "w",
       "type" : "group",
       "actions" : [
         {
-          "type" : "url",
           "key" : "n",
-          "label" : "Obsidian",
-          "value" : "obsidian://open?vault=ams"
+          "type" : "url",
+          "value" : "obsidian://open?vault=ams",
+          "label" : "Obsidian"
         },
         {
-          "label" : "Outlook",
-          "type" : "application",
           "key" : "o",
-          "value" : "/Applications/Microsoft Outlook.app"
+          "type" : "application",
+          "value" : "/Applications/Microsoft Outlook.app",
+          "label" : "Outlook"
         },
         {
-          "key" : "t",
-          "label" : "Teams",
           "value" : "/Applications/Microsoft Teams.app",
-          "type" : "application"
+          "key" : "t",
+          "type" : "application",
+          "label" : "Teams"
         },
         {
-          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://seproxy.bitmarck-software.de/jira/secure/RapidBoard.jspa?rapidView=1000&view=detail&selectedIssue=PK-675103#\"",
-          "label" : "Jira",
           "key" : "j",
-          "type" : "command"
+          "label" : "Jira",
+          "type" : "command",
+          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://seproxy.bitmarck-software.de/jira/secure/RapidBoard.jspa?rapidView=1000&view=detail&selectedIssue=PK-675103#\""
         },
         {
-          "label" : "Confluence",
           "key" : "c",
+          "label" : "Confluence",
           "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://seproxy.bitmarck-software.de/confluence/display/DIGI/FormBuilder+Service+-+aka+Formularmanager\"",
           "type" : "command"
         },
         {
+          "type" : "command",
           "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://www.deepl.com/de/translator\"",
           "key" : "d",
-          "type" : "command",
           "label" : "DeepL"
         },
         {
-          "label" : "LanguageTool",
           "key" : "l",
           "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://languagetool.org/de/\"",
-          "type" : "command"
+          "type" : "command",
+          "label" : "LanguageTool"
         }
-      ]
+      ],
+      "key" : "w",
+      "label" : "Work"
     },
     {
-      "value" : "/Applications/Spotify.app",
-      "key" : "s",
       "type" : "application",
-      "label" : ""
+      "label" : "",
+      "key" : "s",
+      "value" : "/Applications/Spotify.app"
     }
   ],
   "type" : "group"
