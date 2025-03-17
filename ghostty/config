@@ -1,2 +1,33 @@
-theme = gruvbox-material
+# Theming
+theme = GruvboxDark
+
+# Font
+font-family = CommitMono Nerd Font Mono
+#font-thicken = true
+# font-size = 12
+
+# Appearance
+adjust-cell-height = 12%
+macos-titlebar-style = hidden
+# window-colorspace = display-p3
+window-padding-balance = true
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Interface
+window-save-state = always
+
+# Split
+keybind = cmd+s>\=new_split:right
+keybind = cmd+s>-=new_split:down
+
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>l=goto_split:right
+
+keybind = cmd+s>z=toggle_split_zoom
+
+keybind = cmd+s>e=equalize_splits
 
