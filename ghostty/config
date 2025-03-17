@@ -1,2 +1,4 @@
-theme = gruvbox-material
+theme = GruvboxDark
+font-family =  RobotoMono Nerd Font Mono
+macos-titlebar-style = hidden
 
