@@ -19,7 +19,6 @@ export FZF_DEFAULT_OPTS=" \
 	--pointer ▌ `#pointer to the current line`																	\
 	--preview 'bat --style=numbers --color=always --line-range=:500 {}' `#specify a preview action to use bat`	\
 	--prompt '▌ ' `#input prompt`																				\
-	--reverse `#display from the top of the screen (a synonym for --layout=reverse)`							\
 "
 
 # Lazygit configuration file
