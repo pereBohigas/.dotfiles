@@ -88,10 +88,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Remap leader key ('\') and local leader with dash ('-')
-" let mapleader = "-"
-" let maplocalleader = "-"
-
 " Make 'Y' to yank till the end of the line (behaving like the other capital
 " letters)
 nnoremap Y y$
@@ -141,11 +137,43 @@ autocmd FileType ruby setlocal shiftwidth=4 noexpandtab
 " For regular expressions turn magic on
 "set magic
 
+" Keep modify buffers as hidden
+set hidden
+
+" Highlight search results
+set hlsearch
+
+" Keep a long command history
+set history=1000
+
+set wildmenu
+
+" Keep undo information in a file
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+
+" Navigate between windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Activate spell checking
+map <leader>s :setlocal spell!<cr>
+
+" Load file specific plugins
+filetype plugin indent on
+
 if has('nvim')
 	finish
 endif
 
 " VIM specific configuration
+
+" Remap leader key and local leader with space (' ')
+let mapleader=" "
+let maplocalleader=" "
 
 " Set '.viminfo' file path
 set viminfofile=~/.vim/viminfo
