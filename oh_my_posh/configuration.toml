@@ -19,7 +19,7 @@ yellow  = '#d8a657'
   background = 'transparent'
 
 [transient_prompt]
-  template = '<p:yellow,transparent></><,p:yellow> {{ .Folder }} </><p:yellow,transparent></> '
+  template = '<p:yellow,transparent></><,p:yellow> {{ if eq .Folder .UserName }}~{{ else }}{{ .Folder }}{{ end }} </><p:yellow,transparent></> '
   foreground = 'p:black'
   background = 'transparent'
 
@@ -30,7 +30,7 @@ yellow  = '#d8a657'
   [[blocks.segments]]
     leading_diamond = ''
     trailing_diamond = ''
-    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }} '
+    template = '{{ if .SSHSession }} {{ end }} ~ '
     foreground = 'p:black'
     background = 'p:yellow'
     type = 'session'
