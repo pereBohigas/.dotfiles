@@ -178,6 +178,9 @@ fi
 # Add SourceKit (Swift LSP) to path
 [[ -d $HOME/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain ]] && PATH="$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain"
 
+# Postgre binaries
+[[ -d /opt/homebrew/opt/postgresql@17/bin ]] && PATH="$PATH:/opt/homebrew/opt/postgresql@17/bin"
+
 # Mise
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 
