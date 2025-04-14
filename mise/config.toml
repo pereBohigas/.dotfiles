@@ -1,0 +1,7 @@
+[tools]
+swiftgen = 'latest' # Swift code generator for assets, storyboards, Localizable.strings, …
+swiftformat = 'latest' # Formatting technology for Swift source code
+swiftlint = 'latest' # Tool to enforce Swift style and conventions
+xcbeautify = 'latest' # Little beautifier tool for xcodebuild
+xcodegen = 'latest' # Generate your Xcode project from a spec file and your folder structure
+
