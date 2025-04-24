@@ -31,6 +31,7 @@ brew "zsh-vi-mode" # Better and friendly vi(vim) mode plugin for ZSH
 brew "ghcup" # Installer for the general purpose language Haskell
 brew "make" # Utility for directing compilation
 brew "pkl" # CLI for the Pkl programming language
+brew "pkl-lsp" # Language server for Pkl
 brew "rust" # Safe, concurrent, practical language
 
 ### Editors ###
@@ -67,6 +68,7 @@ brew "julien-cpsn/atac/atac" # A simple API client (postman like) in your termin
 brew "curlie" # Power of curl, ease of use of httpie
 brew "drill" # HTTP load testing application written in Rust
 cask "hoppscotch" # Open source API development ecosystem
+brew "hurl" # Run and Test HTTP Requests with plain text and curl
 # cask "proxyman" # Modern and intuitive HTTP Debugging Proxy app
 brew "telnet" # User interface to the TELNET protocol
 brew "xh" # Friendly and fast tool for sending HTTP requests
@@ -222,6 +224,7 @@ mas "WhatsApp", id: 310633997
 cask "zoom" # Video communication and virtual meeting platform
 
 ### Video creation/playback ###
+brew "ffmpeg" # Play, record, convert, and stream audio and video
 mas "Gifski", id: 1351639930
 cask "handbrake" # Open-source video transcoder
 mas "iMovie", id: 408981434
