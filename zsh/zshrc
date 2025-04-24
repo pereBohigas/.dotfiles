@@ -90,8 +90,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 lazy_nvm_load() {
 	unset -f nvm node npm
 
-	export NVM_DIR="${HOME}/.nvm"
-	[[ -s $NVM_DIR/nvm.sh ]] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 }
 
 nvm() {
