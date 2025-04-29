@@ -1,115 +1,195 @@
 {
   "actions" : [
     {
-      "type" : "application",
-      "value" : "/Applications/Ghostty.app",
-      "label" : "",
-      "key" : "t"
+      "actions" : [
+        {
+          "iconPath" : "/Applications/Obsidian.app",
+          "key" : "n",
+          "label" : "Obsidian",
+          "type" : "url",
+          "value" : "obsidian://open?vault=adesso"
+        },
+        {
+          "key" : "o",
+          "label" : "Outlook",
+          "type" : "application",
+          "value" : "/Applications/Microsoft Outlook.app"
+        },
+        {
+          "key" : "t",
+          "label" : "Teams",
+          "type" : "application",
+          "value" : "/Applications/Microsoft Teams.app"
+        }
+      ],
+      "iconPath" : "tray.2.fill",
+      "key" : "a",
+      "label" : "Work",
+      "type" : "group"
     },
     {
       "actions" : [
         {
           "key" : "b",
           "label" : "Brave",
-          "value" : "/Applications/Brave Browser.app",
-          "type" : "application"
+          "type" : "application",
+          "value" : "/Applications/Brave Browser.app"
         },
         {
-          "type" : "application",
-          "value" : "/Applications/Firefox.app",
+          "iconPath" : "/Applications/DeepL.app",
+          "key" : "d",
+          "label" : "Deepl",
+          "type" : "command",
+          "value" : "open https://www.deepl.com/de/translator -a Firefox.app "
+        },
+        {
           "key" : "f",
-          "label" : ""
+          "type" : "application",
+          "value" : "/Applications/Firefox.app"
+        },
+        {
+          "iconPath" : "/Applications/LanguageTool.app",
+          "key" : "l",
+          "label" : "LanguageTool",
+          "type" : "command",
+          "value" : "open https://languagetool.org/de -a Firefox.app "
+        },
+        {
+          "iconPath" : "arrowtriangle.forward.square.fill",
+          "key" : "y",
+          "label" : "Youtube",
+          "type" : "command",
+          "value" : "open https://www.youtube.com -a Firefox.app "
+        },
+        {
+          "actions" : [
+            {
+              "key" : "b",
+              "label" : "Brave",
+              "type" : "command",
+              "value" : "defaultbrowser browser"
+            },
+            {
+              "key" : "f",
+              "label" : "Firefox",
+              "type" : "command",
+              "value" : "defaultbrowser firefox"
+            }
+          ],
+          "key" : "s",
+          "label" : "Set browser",
+          "type" : "group"
         }
       ],
+      "iconPath" : "network",
+      "key" : "b",
       "label" : "Browser",
-      "type" : "group",
-      "key" : "b"
+      "type" : "group"
     },
     {
-      "key" : "m",
       "actions" : [
         {
+          "key" : "k",
           "type" : "application",
-          "label" : "",
-          "value" : "/Applications/Slack.app",
-          "key" : "l"
+          "value" : "/Applications/keymapp.app"
         },
         {
-          "value" : "/Applications/Signal.app",
-          "label" : "",
+          "iconPath" : "keyboard.badge.ellipsis.fill",
+          "key" : "m",
+          "label" : "Monkeytype",
+          "type" : "command",
+          "value" : "open https://monkeytype.com -a Firefox.app "
+        },
+        {
+          "iconPath" : "keyboard.badge.eye.fill",
+          "key" : "o",
+          "label" : "Oryx",
+          "type" : "command",
+          "value" : "open https://configure.zsa.io/voyager/layouts/jDQO4 -a Firefox.app "
+        }
+      ],
+      "iconPath" : "keyboard.fill",
+      "key" : "k",
+      "label" : "Keyboard",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "l",
+          "type" : "application",
+          "value" : "/Applications/Slack.app"
+        },
+        {
           "key" : "s",
-          "type" : "application"
+          "type" : "application",
+          "value" : "/Applications/Signal.app"
         },
         {
           "key" : "t",
-          "label" : "",
           "type" : "application",
           "value" : "/Applications/Telegram.app"
         },
         {
           "key" : "w",
           "type" : "application",
-          "label" : "",
           "value" : "/Applications/WhatsApp.app"
         }
       ],
-      "type" : "group",
-      "label" : "Messaging"
+      "iconPath" : "message.fill",
+      "key" : "m",
+      "label" : "Messaging",
+      "type" : "group"
     },
     {
-      "type" : "group",
       "actions" : [
         {
-          "key" : "n",
+          "iconPath" : "/Applications/Obsidian.app",
+          "key" : "m",
+          "label" : "Mind",
           "type" : "url",
-          "value" : "obsidian://open?vault=ams",
-          "label" : "Obsidian"
+          "value" : "obsidian://open?vault=mindmap"
         },
         {
-          "key" : "o",
-          "type" : "application",
-          "value" : "/Applications/Microsoft Outlook.app",
-          "label" : "Outlook"
-        },
+          "iconPath" : "/Applications/Obsidian.app",
+          "key" : "n",
+          "label" : "Notes",
+          "type" : "url",
+          "value" : "obsidian://open?vault=notes"
+        }
+      ],
+      "iconPath" : "pencil.line",
+      "key" : "n",
+      "label" : "Notes",
+      "type" : "group"
+    },
+    {
+      "key" : "s",
+      "type" : "application",
+      "value" : "/Applications/Spotify.app"
+    },
+    {
+      "key" : "t",
+      "type" : "application",
+      "value" : "/Applications/Ghostty.app"
+    },
+    {
+      "actions" : [
         {
-          "value" : "/Applications/Microsoft Teams.app",
-          "key" : "t",
-          "type" : "application",
-          "label" : "Teams"
-        },
-        {
-          "key" : "j",
-          "label" : "Jira",
-          "type" : "command",
-          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://seproxy.bitmarck-software.de/jira/secure/RapidBoard.jspa?rapidView=1000&view=detail&selectedIssue=PK-675103#\""
-        },
-        {
-          "key" : "c",
-          "label" : "Confluence",
-          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://seproxy.bitmarck-software.de/confluence/display/DIGI/FormBuilder+Service+-+aka+Formularmanager\"",
-          "type" : "command"
-        },
-        {
-          "type" : "command",
-          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://www.deepl.com/de/translator\"",
           "key" : "d",
-          "label" : "DeepL"
+          "type" : "application",
+          "value" : "/Applications/DeepL.app"
         },
         {
           "key" : "l",
-          "value" : "/usr/bin/open -a \"/Applications/Brave Browser.app\" \"https://languagetool.org/de/\"",
-          "type" : "command",
-          "label" : "LanguageTool"
+          "type" : "application",
+          "value" : "/Applications/LanguageTool.app"
         }
       ],
+      "iconPath" : "eraser.line.dashed.fill",
       "key" : "w",
-      "label" : "Work"
-    },
-    {
-      "type" : "application",
-      "label" : "",
-      "key" : "s",
-      "value" : "/Applications/Spotify.app"
+      "label" : "Writting",
+      "type" : "group"
     }
   ],
   "type" : "group"
