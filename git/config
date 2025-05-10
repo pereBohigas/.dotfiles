@@ -84,6 +84,7 @@
 	autosetupremote = true
 	default = simple
 	followtags = true # push new tags along with commits being pushed
+	recurseSubmodules = on-demand
 
 [rebase]
 	autoSquash = true
@@ -96,6 +97,9 @@
 [rerere] # REuse REcorded REsolution - Remember the resolution of git merge conflicts and automatically fix them on new occurrences
 	enable = true
 	autoupdate = true
+
+[submodule]
+	recurse = true
 
 [tag]
 	sort = version:refname
