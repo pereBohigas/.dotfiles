@@ -48,6 +48,7 @@ brew "gitui" # Blazing fast terminal-ui for git written in rust
 cask "gitup" # Git interface focused on visual interaction
 brew "hub" # Add GitHub support to git on the command-line
 brew "lazygit" # Simple terminal UI for git commands
+brew "serie" # Rich git commit graph in your terminal
 
 ### File/Memory management ###
 brew "duf" # Disk Usage/Free Utility - a better 'df' alternative
@@ -120,6 +121,7 @@ mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+brew "typst" # Markup-based typesetting system
 # cask "zotero" # Collect, organize, cite, and share research sources -> NOT M1 COMPATIBLE
 
 ### Keyboard Tools ###
@@ -195,6 +197,7 @@ cask "blackhole-2ch" # Virtual Audio Driver
 # cask "blackhole-16ch" # virtual audio driver (internal audio routing)
 brew "defaultbrowser" # Command-line tool for getting & setting the default browser
 # cask "hammerspoon" # Desktop automation application
+cask "jiggler" # Keep your computer awake
 cask "leader-key" # Application launcher
 cask "maccy" # Clipboard manager
 cask "monitorcontrol" # Tool to control external monitor brightness & volume
@@ -203,6 +206,7 @@ cask "notunes" # Simple application that will prevent iTunes or Apple Music from
 # cask "qlmarkdown" # QuickLook generator for Markdown files
 cask "shortcat" # App that enables mouse-free UI interaction
 # brew "skhd" # Simple hotkey-daemon for macOS
+brew "television" # General purpose fuzzy finder TUI
 
 ### Learning ###
 cask "anki" # Memory training application
