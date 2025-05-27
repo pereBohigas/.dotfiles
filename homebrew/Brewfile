@@ -21,7 +21,7 @@ brew "rbenv" # Ruby version manager
 ### Shell plugins ###
 brew "jandedobbeleer/oh-my-posh/oh-my-posh" # Prompt theme engine for any shell
 brew "parallel" # Shell command parallelization utility
-# brew "starship" # Cross-shell prompt for astronauts
+brew "starship" # Cross-shell prompt for astronauts
 brew "zoxide" # Shell extension to navigate your filesystem faster
 brew "zsh-autosuggestions" # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-syntax-highlighting" # Fish shell like syntax highlighting for zsh
@@ -29,10 +29,14 @@ brew "zsh-vi-mode" # Better and friendly vi(vim) mode plugin for ZSH
 
 ### Compilers ###
 brew "ghcup" # Installer for the general purpose language Haskell
-brew "make" # Utility for directing compilation
 brew "pkl" # CLI for the Pkl programming language
 brew "pkl-lsp" # Language server for Pkl
 brew "rust" # Safe, concurrent, practical language
+
+### Command Runners ###
+brew "just" # Handy way to save and run project-specific commands
+brew "make" # Utility for directing compilation
+brew "mask" # CLI task runner defined by a simple markdown file
 
 ### Editors ###
 brew "neovim" # Ambitious Vim-fork focused on extensibility and agility
@@ -53,6 +57,7 @@ brew "serie" # Rich git commit graph in your terminal
 ### File/Memory management ###
 brew "duf" # Disk Usage/Free Utility - a better 'df' alternative
 brew "dust" # More intuitive version of du in rust
+brew "kondo" # Save disk space by cleaning non-essential files from software projects
 brew "superfile" # Modern and pretty fancy file manager for the terminal
 brew "tree" # Display directories as trees (with optional color/HTML output)
 brew "yazi" # Blazing fast terminal file manager written in Rust, based on async I/O
@@ -60,6 +65,7 @@ brew "yazi" # Blazing fast terminal file manager written in Rust, based on async
 ### Process/System monitor ###
 brew "bottom" # Yet another cross-platform graphical process/system monitor
 brew "htop" # Improved top (interactive process viewer)
+brew "hyperfine" # Command-line benchmarking tool
 
 ### VPN ###
 # brew "openconnect" # Open client for Cisco AnyConnect VPN
@@ -121,6 +127,7 @@ mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+brew "presenterm" # Terminal slideshow tool
 brew "typst" # Markup-based typesetting system
 # cask "zotero" # Collect, organize, cite, and share research sources -> NOT M1 COMPATIBLE
 
@@ -146,6 +153,7 @@ brew "hexyl" # Command-line hex viewer
 brew "tabiew" # TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
 brew "tesseract" # OCR (Optical Character Recognition) engine
 brew "tesseract-lang" # Enables extra languages support for Tesseract
+brew "tokei" # Program that allows you to count code, quickly
 brew "xq" # Command-line XML and HTML beautifier and content extractor
 brew "yq" # Process YAML, JSON, XML, CSV and properties documents from the CLI
 
@@ -153,7 +161,10 @@ brew "yq" # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "fd" # Simple, fast and user-friendly alternative to find
 brew "fzf" # Command-line fuzzy finder written in Go
 brew "ripgrep" # Search tool like grep and The Silver Searcher
+brew "ripgrep-all" # Wrapper around ripgrep that adds multiple rich file types
 brew "sd" # Intuitive find & replace CLI
+brew "sk" # Fuzzy Finder in rust!
+brew "television" # General purpose fuzzy finder TUI
 
 ### Terminal ###
 cask "alacritty" # GPU-accelerated terminal emulator
@@ -188,6 +199,7 @@ mas "reMarkable", id: 1276493162 # View, Screen Share, organize, import, and dow
 ### Windows management ###
 # cask nikitabobko/tap/aerospace # AeroSpace is an i3-like tiling window manager for macOS
 cask "amethyst" # Automatic tiling window manager similar to xmonad
+cask "flashspace" # Virtual workspace manager
 # cask "rectangle" # Move and resize windows using keyboard shortcuts or snap areas
 # brew "yabai" # A tiling window manager for macOS based on binary space partitioning
 
@@ -206,7 +218,6 @@ cask "notunes" # Simple application that will prevent iTunes or Apple Music from
 # cask "qlmarkdown" # QuickLook generator for Markdown files
 cask "shortcat" # App that enables mouse-free UI interaction
 # brew "skhd" # Simple hotkey-daemon for macOS
-brew "television" # General purpose fuzzy finder TUI
 
 ### Learning ###
 cask "anki" # Memory training application
@@ -237,6 +248,7 @@ cask "vlc" # Multimedia player
 
 ### Music creation/playback ###
 mas "GarageBand", id: 682658836
+brew "ncspot" # Cross-platform ncurses Spotify client written in Rust
 cask "sonos" # Control your Sonos system
 cask "spotify" # Music streaming service
 
