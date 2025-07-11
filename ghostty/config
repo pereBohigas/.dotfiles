@@ -3,7 +3,7 @@ theme = GruvboxDark
 
 # Font
 font-family = CommitMono Nerd Font Mono
-#font-thicken = true
+# font-thicken = true
 # font-size = 12
 
 # Appearance
@@ -16,7 +16,8 @@ window-padding-balance = true
 mouse-hide-while-typing = true
 
 # Interface
-window-save-state = always
+# window-save-state = always
+window-save-state = never
 
 # Split
 keybind = cmd+s>\=new_split:right
