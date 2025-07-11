@@ -1,4 +1,5 @@
 [tools]
+deno = 'latest'
 swiftgen = 'latest' # Swift code generator for assets, storyboards, Localizable.strings, …
 swiftformat = 'latest' # Formatting technology for Swift source code
 swiftlint = 'latest' # Tool to enforce Swift style and conventions
