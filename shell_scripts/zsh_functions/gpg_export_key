@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+keyID=$1
+fileName=$2
+
+gpg --armor --export $keyID --output ${fileName}_public.gpg
+gpg --armor --export-secret-key $keyID --output ${fileName}_private.gpg
+

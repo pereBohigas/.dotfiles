@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+keyID=$1
+fileName=$2
+
+gpg --import ${fileName}_public.gpg
+gpg --allow-secret-key-import --import ${fileName}_private.gpg
+
