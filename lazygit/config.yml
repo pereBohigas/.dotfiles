@@ -1,4 +1,9 @@
 customCommands:
+  - key: '<c-g>'
+    command: "serie"
+    context: 'global'
+    description: 'Show commit graph'
+    output: terminal
   - key: 'x'
     command: "xed --background ."
     context: 'global'
@@ -7,13 +12,27 @@ customCommands:
   - key: 'X'
     context: 'global'
     command: >-
-      osascript -e 'quit app "Xcode"'
-      rm -rf "~/Library/Developer/Xcode/DerivedData"
+      osascript -e 'quit app "Xcode"' rm -rf "~/Library/Developer/Xcode/DerivedData"
     description: 'Closes Xcode on current project'
     loadingText: 'Closing Xcode on current project'
     #command: "kill $(ps aux | grep 'Xcode' | awk '{print $2}')"
     #command: xed . && osascript -e 'tell app "XCode" to close window 0'
     #command: killall Xcode
+  - key: '<c-d>'
+    context: 'commits'
+    description: 'Change commit date and time'
+    prompts:
+      - type: 'input'
+        title: 'Give a new date and time for the commit (default current timestamp):'
+        key: 'CommitTimestamp'
+        initialValue: ''
+        suggestions:
+          command: 'Enter a timestamp using the ISO 8601 format'
+    # TODO: Check if a timestamp is being entered otherwise use current timestamp with ISO 8601 format -> `date -Iseconds` but using Go
+    command: >-
+      echo "{{.SelectedLocalCommit.Hash}}" git rebase --interactive {{.SelectedCommit.Hash}}~1 GIT_AUTHOR_DATE=format:iso8601:\"{{.Form.CommitTimestamp}}\" GIT_COMMITTER_DATE=format:iso8601:\"{{.Form.CommitTimestamp}}\" git commit --amend --no-edit --date \"{{.Form.CommitTimestamp}}\" git rebase --continue
+    loadingText: 'Changing commit timestamp'
+    output: popup
 git:
   autoFetch: true
   autoRefresh: true
@@ -43,4 +62,3 @@ gui:
 notARepository: 'quit'
 os:
   editPreset: 'nvim'
-
