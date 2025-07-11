@@ -19,7 +19,7 @@ brew "pyenv" # Python version management
 brew "rbenv" # Ruby version manager
 
 ### Shell plugins ###
-brew "jandedobbeleer/oh-my-posh/oh-my-posh" # Prompt theme engine for any shell
+# brew "jandedobbeleer/oh-my-posh/oh-my-posh" # Prompt theme engine for any shell
 brew "parallel" # Shell command parallelization utility
 brew "starship" # Cross-shell prompt for astronauts
 brew "zoxide" # Shell extension to navigate your filesystem faster
@@ -31,7 +31,7 @@ brew "zsh-vi-mode" # Better and friendly vi(vim) mode plugin for ZSH
 brew "ghcup" # Installer for the general purpose language Haskell
 brew "pkl" # CLI for the Pkl programming language
 brew "pkl-lsp" # Language server for Pkl
-brew "rust" # Safe, concurrent, practical language
+# brew "rust" # Safe, concurrent, practical language
 
 ### Command Runners ###
 brew "just" # Handy way to save and run project-specific commands
@@ -43,7 +43,7 @@ brew "neovim" # Ambitious Vim-fork focused on extensibility and agility
 cask "zed" # Multiplayer code editor
 
 ### Version control ###
-cask "fork" # GIT client
+# cask "fork" # GIT client
 brew "git" # Distributed revision control system
 brew "git-delta" # Syntax-highlighting pager for git and diff output
 brew "git-lfs" # Git extension for versioning large files
@@ -82,9 +82,9 @@ brew "xh" # Friendly and fast tool for sending HTTP requests
 
 ### Virtualization & Containers ###
 # cask "balenaetcher" # Tool to flash OS images to SD cards & USB drives -> NOT M1 COMPATIBLE
-cask "citrix-workspace" if system(%q[mdfind "kMDItemKind == 'Application'" | grep -q "Endpoint Security VPN\.app$"]) # Managed desktop virtualization solution
+# cask "citrix-workspace" if system(%q[mdfind "kMDItemKind == 'Application'" | grep -q "Endpoint Security VPN\.app$"]) # Managed desktop virtualization solution
 # brew "docker" # App to build and share containerized applications and microservices
-brew "podman" # Tool for managing OCI containers and pods
+# brew "podman" # Tool for managing OCI containers and pods
 cask "raspberry-pi-imager" # Imaging utility to install operating systems to a microSD card -> NOT M1 COMPATIBLE
 
 ### Image editing/manipulation ###
@@ -92,7 +92,7 @@ cask "drawio" # Draw.io is free online diagram software
 cask "gimp" # Free and open-source image editor -> NOT M1 COMPATIBLE
 brew "imagemagick" # Tools and libraries to manipulate images in many formats
 cask "imageoptim" # Tool to optimize images to a smaller size
-cask "inkscape" # Vector graphics editor
+# cask "inkscape" # Vector graphics editor
 brew "viu" # Simple terminal image viewer written in Rust
 # cask "zeplin" # Share, organize and collaborate on designs
 
@@ -101,13 +101,14 @@ cask "keka" # File archiver
 
 ### Internet browser ###
 cask "brave-browser" # Web browser focusing on privacy
-cask "firefox" # Web browser
+# cask "firefox" # Web browser
 # Browserpass setup for Firefox:
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-firefox-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
 # Browserpass setup for Brave:
 # PREFIX='/opt/homebrew/opt/browserpass' make hosts-brave-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
 brew "amar1729/homebrew-formulae/browserpass" # Host application for browser extension providing access to your password store
 mas "Consent-O-Matic", id: 1606897889
+cask "zen" # Gecko based web browser
 
 ### PDF inspection/manipulation ###
 brew "ghostscript" # Interpreter for PostScript and PDF
@@ -119,7 +120,7 @@ mas "LanguageTool", id: 1534275760
 
 ### Office tools ###
 mas "Keynote", id: 409183694
-cask "libreoffice" # Office suite
+# cask "libreoffice" # Office suite
 cask "mactex" # Full TeX Live distribution with GUI applications
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
@@ -179,14 +180,14 @@ brew "zellij" # Pluggable terminal workspace, with terminal multiplexer as the b
 
 ### Password management ###
 # cask "1password" # Password manager that keeps all passwords secure behind one password
-mas "Bitwarden", id: 1352778147 # Desktop password and login vault
+# mas "Bitwarden", id: 1352778147 # Desktop password and login vault
 brew "pass" # Password manager
 brew "pinentry-mac" # Pinentry for GPG on Mac
 # cask "keeweb" # Password manager compatible with KeePass
 cask "macpass" # Open-source, KeePass-client and password manager
 
 ### Database ###
-cask "dbeaver-community" # Universal database tool and SQL client
+# cask "dbeaver-community" # Universal database tool and SQL client
 cask "pgadmin4" # Administration and development platform for PostgreSQL
 brew "postgresql@17" # Object-relational database system
 brew "rainfrog" # Database management TUI for Postgres
@@ -247,7 +248,7 @@ cask "shotcut" # Video editor
 cask "vlc" # Multimedia player
 
 ### Music creation/playback ###
-mas "GarageBand", id: 682658836
+# mas "GarageBand", id: 682658836
 brew "ncspot" # Cross-platform ncurses Spotify client written in Rust
 cask "sonos" # Control your Sonos system
 cask "spotify" # Music streaming service
@@ -269,6 +270,7 @@ cask "sf-symbols" # Tool that provides consistent, highly configurable symbols f
 # brew "swiftenv" # Swift version manager
 # brew "swiftgen" # Swift code generator for assets, storyboards, Localizable.strings, … -> Installed using Mise
 # brew "swiftlint" # Tool to enforce Swift style and conventions -> Installed using Mise
+brew "swiftly" # Swift toolchain installer and manager
 # brew "swift-format" # Formatting technology for Swift source code -> Installed using Mise
 brew "swift-protobuf" # Plugin and runtime library for using protobuf with Swift
 mas "TestFlight", id: 899247664
@@ -278,4 +280,7 @@ brew "xcodesorg/made/xcodes" # Best command-line tool to install and switch betw
 # brew "xcbeautify" # Little beautifier tool for xcodebuild -> Installed using Mise
 # brew "xcodegen" # Generate your Xcode project from a spec file and your folder structure -> Installed using Mise
 brew "vapor" if system(%q[mdfind "kMDItemKind == 'Application'" | grep -qE "Xcode-[0-9]*\.[0-9]*\.[0-9]*\.app$"]) # Command-line tool for Vapor (Server-side Swift web framework) -> requires Xcode
+
+### Machine learning ###
+brew "mlx" # Array framework for Apple silicon
 
