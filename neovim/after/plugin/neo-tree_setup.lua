@@ -67,7 +67,7 @@ require("neo-tree").setup {
 			{ source = "git_status", display_name = " 󰊢 Git " },
 		},
 	},
-	view = {relativenumber = true},
+	view = { relativenumber = false },
 	window = {
 		position = "left",
 		width = 30,
@@ -130,6 +130,15 @@ require("neo-tree").setup {
 			-- ["<"] = "prev_source",
 			-- [">"] = "next_source",
 		}
+	},
+	event_handlers = {
+		{
+			event = "neo_tree_buffer_enter",
+			handler = function()
+				vim.opt_local.relativenumber = false
+				-- vim.opt_local.relativenumber = false
+			end
+		}
 	}
 }
 
@@ -141,7 +150,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	group = "neotree",
 	callback = function()
 		vim.cmd "Neotree toggle"
-		vim.cmd "set norelativenumber"
+		vim.opt_local.relativenumber = false
+		-- vim.cmd "set norelativenumber"
 		-- if vim.fn.argc() == 0 and not vim.fn.exists "s:std_in" then
 		--     print("here")
 		--     vim.cmd "Neotree toggle"

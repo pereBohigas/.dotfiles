@@ -1,39 +1,39 @@
-local cmp = require('cmp')
--- local luasnip = require('luasnip')
-local opts = {
-	sources = cmp.config.sources {
-		{ name = "nvim_lsp", },
-		{ name = "path", },
-		{ name = "buffer", },
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		["<tab>"] = cmp.mapping(function(original)
-			print("tab pressed")
-			if cmp.visible() then
-				print("cmp expand")
-				cmp.select_next_item()
-			-- elseif luasnip.expand_or_jumpable() then
-			-- 	print("snippet expand")
-			-- 	luasnip.expand_or_jump()
-			else
-				print("fallback")
-				original()
-			end
-		end, {"i", "s"}),
-		["<S-tab>"] = cmp.mapping(function(original)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			-- elseif luasnip.expand_or_jumpable() then
-			-- 	luasnip.jump(-1)
-			else
-				original()
-			end
-		end, {"i", "s"}),
-
-	})
-}
-cmp.setup(opts)
+-- local cmp = require('cmp')
+-- -- local luasnip = require('luasnip')
+-- local opts = {
+-- 	sources = cmp.config.sources {
+-- 		{ name = "nvim_lsp", },
+-- 		{ name = "path", },
+-- 		{ name = "buffer", },
+-- 	},
+-- 	mapping = cmp.mapping.preset.insert({
+-- 		["<CR>"] = cmp.mapping.confirm({ select = true }),
+-- 		["<tab>"] = cmp.mapping(function(original)
+-- 			print("tab pressed")
+-- 			if cmp.visible() then
+-- 				print("cmp expand")
+-- 				cmp.select_next_item()
+-- 			-- elseif luasnip.expand_or_jumpable() then
+-- 			-- 	print("snippet expand")
+-- 			-- 	luasnip.expand_or_jump()
+-- 			else
+-- 				print("fallback")
+-- 				original()
+-- 			end
+-- 		end, {"i", "s"}),
+-- 		["<S-tab>"] = cmp.mapping(function(original)
+-- 			if cmp.visible() then
+-- 				cmp.select_prev_item()
+-- 			-- elseif luasnip.expand_or_jumpable() then
+-- 			-- 	luasnip.jump(-1)
+-- 			else
+-- 				original()
+-- 			end
+-- 		end, {"i", "s"}),
+--
+-- 	})
+-- }
+-- cmp.setup(opts)
 
 -- -- Set up nvim-cmp.
 -- local cmp = require'cmp'

@@ -72,6 +72,18 @@ require("lazy").setup({
 			"ellisonleao/gruvbox.nvim"
 		}
 	},
+	-- Zen Mode -> https://github.com/folke/zen-mode.nvim
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				width = 150
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			}
+		}
+	},
 	--- NAVIGATION ---
 	-- Telescope -> https://github.com/nvim-telescope/telescope.nvim
 	{
@@ -110,34 +122,88 @@ require("lazy").setup({
 		"numToStr/Comment.nvim",
 		lazy = false
 	},
-	-- nvim-cmp -> https://github.com/hrsh7th/nvim-cmp
+	-- blink.cmp -> https://github.com/Saghen/blink.cmp
 	{
-		"hrsh7th/nvim-cmp",
-		version = false,
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-emoji"
-		}
-		-- ---@param opts cmp.ConfigSchema
-		-- opts = function(_, opts)
-		-- 	table.insert(opts, { name = "emoji" })
-		-- end,
+		'saghen/blink.cmp',
+		-- optional: provides snippets for the snippet source
+		dependencies = { 'rafamadriz/friendly-snippets' },
+
+		-- use a release tag to download pre-built binaries
+		version = '1.*',
+		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+		-- build = 'cargo build --release',
+		-- If you use nix, you can build from source using latest nightly rust with:
+		-- build = 'nix run .#build-plugin',
+
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+			-- 'super-tab' for mappings similar to vscode (tab to accept)
+			-- 'enter' for enter to accept
+			-- 'none' for no mappings
+			--
+			-- All presets have the following mappings:
+			-- C-space: Open menu or open docs if already open
+			-- C-n/C-p or Up/Down: Select next/previous item
+			-- C-e: Hide menu
+			-- C-k: Toggle signature help (if signature.enabled = true)
+			--
+			-- See :h blink-cmp-config-keymap for defining your own keymap
+			keymap = { preset = 'default' },
+
+			appearance = {
+				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+				-- Adjusts spacing to ensure icons are aligned
+				nerd_font_variant = 'mono'
+			},
+
+			-- (Default) Only show the documentation popup when manually triggered
+			completion = { documentation = { auto_show = false } },
+
+			-- Default list of enabled providers defined so that you can extend it
+			-- elsewhere in your config, without redefining it, due to `opts_extend`
+			sources = {
+				default = { 'lsp', 'path', 'snippets', 'buffer' },
+			},
+
+			-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
+			-- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
+			-- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
+			--
+			-- See the fuzzy documentation for more information
+			fuzzy = { implementation = "prefer_rust_with_warning" }
+		},
+		opts_extend = { "sources.default" }
 	},
-	{
-		"hrsh7th/cmp-nvim-lsp",
-		lazy = true
-	},
-	{
-		"hrsh7th/cmp-path",
-		lazy = true
-	},
-	{
-		"hrsh7th/cmp-buffer",
-		lazy = true
-	},
+	-- -- nvim-cmp -> https://github.com/hrsh7th/nvim-cmp
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	version = false,
+	-- 	event = "InsertEnter",
+	-- 	dependencies = {
+	-- 		"hrsh7th/cmp-nvim-lsp",
+	-- 		"hrsh7th/cmp-path",
+	-- 		"hrsh7th/cmp-buffer",
+	-- 		"hrsh7th/cmp-emoji"
+	-- 	}
+	-- 	-- ---@param opts cmp.ConfigSchema
+	-- 	-- opts = function(_, opts)
+	-- 	-- 	table.insert(opts, { name = "emoji" })
+	-- 	-- end,
+	-- },
+	-- {
+	-- 	"hrsh7th/cmp-nvim-lsp",
+	-- 	lazy = true
+	-- },
+	-- {
+	-- 	"hrsh7th/cmp-path",
+	-- 	lazy = true
+	-- },
+	-- {
+	-- 	"hrsh7th/cmp-buffer",
+	-- 	lazy = true
+	-- },
 	--- FILE SYSTEM ---
 	-- Neo Tree -> https://github.com/nvim-neo-tree/neo-tree.nvim
 	{
@@ -150,6 +216,14 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			{ "nvim-tree/nvim-web-devicons", lazy = true }, -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim"
+		},
+		opts = {
+			event_handlers = {
+				event = "neo_tree_buffer_enter",
+				handler = function()
+					vim.opt_local.relativenumber = true
+				end
+			}
 		}
 	},
 	-- Oil -> https://github.com/stevearc/oil.nvim
@@ -182,39 +256,77 @@ require("lazy").setup({
 	},
 	--- INTEGRATION ---
 	-- Obsidian -> https://github.com/epwalsh/obsidian.nvim
+	-- {
+	-- 	"epwalsh/obsidian.nvim",
+	-- 	version = "*", -- recommended, use latest release instead of latest commit
+	-- 	lazy = true,
+	-- 	event = {
+	-- 		-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+	-- 		-- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+	-- 		"BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian/**.md",
+	-- 		"BufNewFile " .. vim.fn.expand "~" .. "/Documents/Obsidian/**.md",
+	-- 	},
+	-- 	dependencies = {
+	-- 		-- Required.
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter"
+	-- 	},
+	-- 	opts = {
+	-- 		workspaces = {
+	-- 			{
+	-- 				name = "adesso",
+	-- 				path = "~/Documents/Obsidian/adesso"
+	-- 			},
+	-- 			{
+	-- 				name = "mind map",
+	-- 				path = "~/Documents/Obsidian/Mindmap"
+	-- 			},
+	-- 			{
+	-- 				name = "notes",
+	-- 				path = "~/Documents/Obsidian/Notes"
+	-- 			}
+	-- 		}
+	-- 	}
+	-- },
 	{
-		"epwalsh/obsidian.nvim",
+		"obsidian-nvim/obsidian.nvim",
 		version = "*", -- recommended, use latest release instead of latest commit
 		lazy = true,
-		event = {
-			-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-			-- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-			"BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian/**.md",
-			"BufNewFile " .. vim.fn.expand "~" .. "/Documents/Obsidian/**.md",
-		},
-		dependencies = {
-			-- Required.
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"nvim-treesitter/nvim-treesitter"
-		},
-		opts = {
-			workspaces = {
-				{
-					name = "ams",
-					path = "~/Documents/Obsidian/ams"
-				},
-				{
-					name = "mind map",
-					path = "~/Documents/Obsidian/Mindmap"
-				},
-				{
-					name = "notes",
-					path = "~/Documents/Obsidian/Notes"
+		ft = "markdown",
+		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		-- event = {
+			--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+			--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+			--   -- refer to `:h file-pattern` for more examples
+			--   "BufReadPre path/to/my-vault/*.md",
+			--   "BufNewFile path/to/my-vault/*.md",
+			-- },
+			dependencies = {
+				-- Required.
+				"nvim-lua/plenary.nvim",
+
+				-- see above for full list of optional dependencies ☝️
+			},
+			---@module 'obsidian'
+			---@type obsidian.config.ClientOpts
+			opts = {
+				workspaces = {
+					{
+						name = "adesso",
+						path = "~/Documents/Obsidian/adesso"
+					},
+					{
+						name = "mind map",
+						path = "~/Documents/Obsidian/mind"
+					},
+					{
+						name = "notes",
+						path = "~/Documents/Obsidian/notes"
+					}
 				}
 			}
-		}
-	},
+		},
 	-- {
 	-- 	"oflisback/obsidian-bridge.nvim",
 	-- 	dependencies = {
@@ -237,12 +349,19 @@ require("lazy").setup({
 		lazy = false     -- we don't want to lazy load VimTeX
 	},
 	--- PREVIEW ---
+	-- Typst Preview -> https://github.com/chomosuke/typst-preview.nvim
+	{
+		'chomosuke/typst-preview.nvim',
+		ft = 'typst',
+		version = '1.*',
+		opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+	},
 	-- {
 	-- 	"OXY2DEV/markview.nvim",
 	-- 	lazy = false,      -- Recommended
 	-- 	-- ft = "markdown" -- If you decide to lazy-load anyway
 	--
-	-- 	dependencies = {
+	-- 	dependencies = h{
 	-- 		"nvim-treesitter/nvim-treesitter",
 	-- 		"nvim-tree/nvim-web-devicons"
 	-- 	}
@@ -264,25 +383,41 @@ require("lazy").setup({
 			vim.cmd("TSInstall! pkl")
 		end
 	},
-	-- Markdown Preview -> https://github.com/iamcco/markdown-preview.nvim
+	-- Xcode project files (*.pbxproj) -> https://github.com/cfdrake/vim-pbxproj
 	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		keys = {
-			{
-				"<leader>m",
-				ft = "markdown",
-				"<cmd>MarkdownPreviewToggle<cr>",
-				desc = "Markdown Preview",
-			}
-		},
-		config = function()
-			vim.cmd([[do FileType]])
-		end
+		"cfdrake/vim-pbxproj"
 	},
+	-- Markdown Preview -> https://github.com/toppair/peek.nvim
+	{
+		"toppair/peek.nvim",
+		event = { "VeryLazy" },
+		build = "deno task --quiet build:fast",
+		config = function()
+			require("peek").setup()
+			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+		end,
+	},
+	-- Markdown Preview -> https://github.com/iamcco/markdown-preview.nvim
+	-- {
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	ft = { "markdown" },
+	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	-- 	ft = "markdown",
+	-- 	build = function()
+	-- 		vim.fn["mkdp#util#install"]()
+	-- 	end,
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader>m",
+	-- 			"<cmd>MarkdownPreviewToggle<cr>",
+	-- 			desc = "Markdown Preview",
+	-- 		}
+	-- 	},
+	-- 	-- config = function()
+	-- 	-- 	vim.cmd([[do FileType]])
+	-- 	-- end
+	-- },
 	-- Markdown to PDF -> https://github.com/arminveres/md-pdf.nvim
 	{
 		'arminveres/md-pdf.nvim',
