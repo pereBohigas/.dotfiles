@@ -31,3 +31,6 @@ export ATAC_KEY_BINDINGS="$HOME/.config/atac/vim_key_bindings.toml"
 # Set GHCup (Haskell) to use XDG specification folder
 export GHCUP_USE_XDG_DIRS="true"
 
+# Starship configuration files
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+

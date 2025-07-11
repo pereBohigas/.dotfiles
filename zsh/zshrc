@@ -199,8 +199,8 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 # bindkey '^J' history-search-forward
 
 # Prompt initialization
-if (( $+commands[oh-my-posh] )) && [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-	eval "$(oh-my-posh init zsh --config $HOME/.config/oh_my_posh/configuration.toml)"
+if (( $+commands[starship] )) && [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+	eval "$(starship init zsh)"
 fi
 
 # Setup Stack binaries
