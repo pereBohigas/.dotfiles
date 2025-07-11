@@ -173,7 +173,7 @@ fi
 [[ -d $HOME/.cargo/bin ]] && PATH="$PATH:$HOME/.cargo/bin"
 
 # Add zoxide (after `compinit` is called to make completions to work and change the prefix of the `z` and `zi` command to `cd
-(( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)" || echo "No zoxide installed"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh --cmd cd)" || echo "No zoxide installed"
 
 # Add SourceKit (Swift LSP) to path
 [[ -d $HOME/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain ]] && PATH="$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain"
@@ -205,6 +205,9 @@ fi
 
 # Setup Stack binaries
 export PATH="$PATH:$HOME/.local/bin"
+
+# Swiftly initialization
+# . "$HOME/.swiftly/env.sh"
 
 # Load additional Zsh configuration
 if [[ -d $HOME/.config/zsh/zsh_additional_configuration ]]; then

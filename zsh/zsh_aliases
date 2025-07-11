@@ -40,3 +40,6 @@ alias downloads="cd $HOME/Downloads/"
 # Lazygit
 (( $+commands[lazygit] )) && alias lg="lazygit"
 
+# Ncspot
+alias spotify="ncspot"
+
