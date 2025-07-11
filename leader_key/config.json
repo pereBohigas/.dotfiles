@@ -148,7 +148,7 @@
           "key" : "m",
           "label" : "Mind",
           "type" : "url",
-          "value" : "obsidian://open?vault=mindmap"
+          "value" : "obsidian://open?vault=mind"
         },
         {
           "iconPath" : "/Applications/Obsidian.app",
@@ -189,6 +189,24 @@
       "iconPath" : "eraser.line.dashed.fill",
       "key" : "w",
       "label" : "Writting",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "s",
+          "type" : "application",
+          "value" : "/System/Applications/Image Capture.app"
+        },
+        {
+          "key" : "e",
+          "type" : "application",
+          "value" : "/Applications/ExifCleaner.app"
+        }
+      ],
+      "iconPath" : "document.fill",
+      "key" : "d",
+      "label" : "Documents",
       "type" : "group"
     }
   ],
