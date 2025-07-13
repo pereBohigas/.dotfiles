@@ -1,8 +1,5 @@
 # run 'brew bundle' to install all listed packages
 
-### Homebrew taps ###
-tap "homebrew/bundle"
-
 ### Mac App Store CLI ###
 brew "mas" # Mac App Store command-line interface
 
@@ -168,10 +165,10 @@ brew "sk" # Fuzzy Finder in rust!
 brew "television" # General purpose fuzzy finder TUI
 
 ### Terminal ###
-cask "alacritty" # GPU-accelerated terminal emulator
+# cask "alacritty" # GPU-accelerated terminal emulator
 brew "cmatrix" # Console Matrix
 cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
-brew "zellij" # Pluggable terminal workspace, with terminal multiplexer as the base feature
+# brew "zellij" # Pluggable terminal workspace, with terminal multiplexer as the base feature
 
 ### Time management ###
 # mas "Be Focused", id: 973134470
@@ -200,7 +197,7 @@ mas "reMarkable", id: 1276493162 # View, Screen Share, organize, import, and dow
 ### Windows management ###
 # cask nikitabobko/tap/aerospace # AeroSpace is an i3-like tiling window manager for macOS
 cask "amethyst" # Automatic tiling window manager similar to xmonad
-cask "flashspace" # Virtual workspace manager
+# cask "flashspace" # Virtual workspace manager
 # cask "rectangle" # Move and resize windows using keyboard shortcuts or snap areas
 # brew "yabai" # A tiling window manager for macOS based on binary space partitioning
 
