@@ -108,8 +108,7 @@
 [transfer]
 	fsckobjects = true # avoid data corruption
 
-[user] # Default user
-	email = pere.bohigas@gmail.com
+[user]
 	name = Pere Bohigas
 
 [web] # needed to be able to open Firefox on macOS
