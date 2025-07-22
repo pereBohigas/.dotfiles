@@ -6,6 +6,7 @@ brew "mas" # Mac App Store command-line interface
 ### Fonts ###
 # cask "font-hack-nerd-font"
 # cask "font-roboto-mono-for-powerline"
+cask "font-fira-sans"
 cask "font-roboto-mono-nerd-font"
 cask "font-commit-mono-nerd-font"
 
@@ -124,6 +125,7 @@ mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
+mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 brew "presenterm" # Terminal slideshow tool
 brew "typst" # Markup-based typesetting system
